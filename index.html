@@ -19,9 +19,7 @@
         .social-links a { color: #c5a059; font-size: 30px; text-decoration: none; }
         .details-panel { margin: 20px; padding: 25px; background: #1a1a1a; border: 2px solid #c5a059; border-radius: 15px; display: none; text-align: right; }
         .details-panel h2 { color: #c5a059; font-size: 20px; margin-bottom: 15px; border-bottom: 1px solid #c5a059; padding-bottom: 10px; text-align: center; }
-        .details-panel p, .details-panel li { color: #fff; font-size: 15px; line-height: 1.6; margin: 8px 0; }
-        .details-panel ul { padding-right: 20px; }
-        .highlight-red { color: #ff4d4d; font-weight: bold; }
+        .details-panel p, .details-panel li { color: #fff; font-size: 15px; line-height: 1.8; margin: 8px 0; }
     </style>
 </head>
 <body>
@@ -46,17 +44,16 @@
 </div>
 <script>
     const data = {
-        hours: { title: "✨ مواعيدنا ✨", content: `<p>أهلاً بحضرتك يافندم 💛✨️</p><p>📍 ORO Cafe: من الساعة 8 صباحًا إلى 1:30 بعد منتصف الليل.</p><p>📍 الجمعة: من 12 ظهرًا إلى 1:30 بعد منتصف الليل.</p><p>تنورونا في أي وقت ✨💛</p>` },
-        student: { title: "✨ باكدج الطلاب والمذاكرة ✨", content: `<p>عروض الطلاب في Oro Cafe 💛✨️</p><p>🔥 ساعة مذاكرة بـ 20 ج.</p><p>🔥 ساعتين بـ 35 ج.</p><p>🔥 خصم 15% على المنيو (مشروبات باردة وديزرت).</p><p>🔥 ولو جاي مع صحابك... الرابع علينا هدية 🤭</p>` },
-        birthday: { title: "✨ باكدج أعياد الميلاد والسبوع ✨", content: `<p>أهلاً بحضرتك يافندم 💛</p><ul><li>ترابيزة لـ 3 أفراد: بدون رسوم عند الطلب، أو 300 ج (تقديم فقط).</li><li>أقل من 10 أفراد: 800 ج.</li><li>10 لـ 20 فرد: 1500 ج.</li><li>20 لـ 40 فرد: 2800 ج.</li><li>40 لـ 80 فرد: 3400 ج 🔥</li></ul><p>✔️ السعر شامل المكان والساوند سيستم. ديكور متاح عند الطلب.</p>` },
-        wedding: { title: "⭐ باكدج الخطوبة وكتب الكتاب ⭐", content: `<p>السعر 3450 🔥 بدل 7500 (لفترة محدودة) ✨️</p><p>شامل المكان، الساوند سيستم، وقاعة مكيفة (تسع 70-80 فرد) ✨💛</p><p><strong>إضافات اختيارية:</strong></p><ul><li>الديكور: أشكال متنوعة أو إحضار ديكور خاص.</li><li>المشروبات والأكل: متاح من المنيو.</li><li>السيرفس: متاح الطلب من خلالكم مع خدمة التقديم بـ 399 ج فقط.</li></ul>` }
+        hours: { title: "✨ مواعيدنا ✨", content: "أهلاً بحضرتك يافندم 💛<br>مواعيد ORO Cafe من 8 صباحًا إلى 1:30 بعد منتصف الليل.<br>يوم الجمعة من 12 ظهرًا إلى 1:30 بعد منتصف الليل.<br>تنورونا في أي وقت ✨💛" },
+        student: { title: "✨ باكدج الطلاب والمذاكرة ✨", content: "أهلاً بحضرتك يافندم 💛<br>🔥 ساعة مذاكرة بـ 20 ج.<br>🔥 ساعتين بـ 35 ج.<br>🔥 خصم 15% على المشروبات الباردة والديزرت.<br>🔥 ولو جاي مع صحابك... الرابع علينا هدية 🤭<br>في انتظاركم 💛✨" },
+        birthday: { title: "✨ باكدج أعياد الميلاد والسبوع ✨", content: "أهلاً بحضرتك يافندم 💛<br>• ترابيزة لـ 3 أفراد: بدون رسوم عند الطلب، أو 300 ج (تقديم فقط).<br>• أقل من 10 أفراد: 800 ج.<br>• من 10 لـ 20 فرد: 1500 ج.<br>• من 20 لـ 40 فرد: 2800 ج.<br>• من 40 لـ 80 فرد: 3400 ج 🔥<br>✔️ السعر شامل المكان والساوند سيستم.<br>✨ ديكور متاح (أو إحضار ديكور خاص).<br>تنورونا 💛🤗" },
+        wedding: { title: "⭐ باكدج الخطوبة وكتب الكتاب ⭐", content: "عرض الخطوبة وكتب الكتاب 💛<br>السعر 3450 🔥 بدل 7500 لفترة محدودة ✨<br>السعر شامل المكان والساوند سيستم والقاعة مكيفة (تسع 70-80 فرد).<br>✨ خدمات إضافية اختيارية:<br>• الديكور: أشكال متنوعة أو إحضار ديكور خاص بكم.<br>• المشروبات والأكل: متاح من المنيو أو كانزات أو علب جاتوه.<br>• السيرفس: متاح الطلب من خلالكم مع خدمة التقديم بسعر 399 ج فقط." }
     };
     function showDetails(key) {
-        const panel = document.getElementById('detailsPanel');
         document.getElementById('panelTitle').innerHTML = data[key].title;
         document.getElementById('panelContent').innerHTML = data[key].content;
-        panel.style.display = 'block';
-        panel.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('detailsPanel').style.display = 'block';
+        document.getElementById('detailsPanel').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 </body>
