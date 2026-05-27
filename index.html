@@ -3,27 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oro Cafe - Welcome</title>
+    <title>Oro Cafe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0d0d0d; color: #fff; direction: rtl; text-align: center; }
-        .main-wrapper { max-width: 500px; margin: 0 auto; min-height: 100vh; background-color: #000; position: relative; padding-bottom: 40px; }
-        .bg-container { position: relative; width: 100%; height: 100vh; background: url('welcome-bg.jpg.png') no-repeat center top; background-size: contain; }
-        .btn { position: absolute; background: rgba(255, 255, 255, 0); cursor: pointer; border: none; -webkit-tap-highlight-color: transparent; z-index: 10; }
+        body, html { margin: 0; padding: 0; font-family: sans-serif; background-color: #000; color: #fff; direction: rtl; text-align: center; overflow-x: hidden; }
+        .main-wrapper { max-width: 500px; margin: 0 auto; min-height: 100vh; background-color: #000; position: relative; padding-bottom: 20px; }
+        
+        .bg-container { 
+            position: relative; 
+            width: 100%; 
+            height: 100vh; 
+            background: url('welcome-bg.jpg.png') no-repeat center top; 
+            background-size: contain; 
+        }
+
+        /* كود إخفاء العلامة المائية */
+        .hide-watermark { 
+            position: absolute; 
+            bottom: 8.5%; 
+            right: 4%; 
+            width: 45px; 
+            height: 45px; 
+            background-color: #000; 
+            z-index: 5; 
+        }
+
+        .btn { position: absolute; background: rgba(255, 255, 255, 0); cursor: pointer; border: none; z-index: 10; }
         .menu-btn { top: 21%; left: 5%; width: 42%; height: 21%; }
         .wedding-btn { top: 21%; right: 5%; width: 42%; height: 21%; }
         .birthday-btn { top: 44%; left: 5%; width: 90%; height: 17%; }
         .student-btn { top: 63%; left: 5%; width: 42%; height: 21%; }
         .hours-btn { top: 63%; right: 5%; width: 42%; height: 21%; }
-        .social-links { display: flex; justify-content: center; gap: 20px; padding: 20px 0; }
-        .social-links a { color: #c5a059; font-size: 28px; text-decoration: none; }
-        .details-panel { margin: -20px 20px 20px 20px; padding: 25px; background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); border: 2px solid #c5a059; border-radius: 15px; box-shadow: 0 10px 25px rgba(197, 160, 89, 0.2); display: none; text-align: right; }
-        .details-panel h2 { color: #c5a059; font-size: 22px; margin-top: 0; margin-bottom: 15px; border-bottom: 1px solid #c5a059; padding-bottom: 10px; text-align: center; }
-        .details-panel p { color: #e6e6e6; font-size: 15px; line-height: 1.8; margin: 8px 0; }
-        .details-panel ul { padding-right: 20px; margin: 10px 0; }
-        .details-panel li { color: #e6e6e6; font-size: 15px; margin-bottom: 8px; line-height: 1.6; }
+        
+        .social-links { display: flex; justify-content: center; gap: 25px; padding: 15px 0; background-color: #000; }
+        .social-links a { color: #c5a059; font-size: 26px; text-decoration: none; }
+        
+        .details-panel { margin: 0 20px 20px 20px; padding: 25px; background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); border: 2px solid #c5a059; border-radius: 15px; display: none; text-align: right; }
+        .details-panel h2 { color: #c5a059; font-size: 20px; margin-top: 0; border-bottom: 1px solid #c5a059; padding-bottom: 10px; text-align: center; }
+        .details-panel p { color: #fff; font-size: 14px; line-height: 1.8; margin: 8px 0; }
+        .details-panel ul { padding-right: 15px; margin: 10px 0; text-align: right; }
+        .details-panel li { color: #fff; font-size: 14px; margin-bottom: 6px; }
+        
         .highlight-gold { color: #c5a059; font-weight: bold; }
         .highlight-red { color: #ff4d4d; font-weight: bold; }
+        .back-to-menu { display: inline-block; margin-top: 15px; padding: 8px 20px; background-color: #c5a059; color: #000; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -34,33 +57,40 @@
         <button class="btn birthday-btn" onclick="showDetails('birthday')"></button>
         <button class="btn student-btn" onclick="showDetails('student')"></button>
         <button class="btn hours-btn" onclick="showDetails('hours')"></button>
+        
+        <div class="hide-watermark"></div>
     </div>
+    
     <div class="social-links">
         <a href="https://wa.me/201098896637" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <a href="https://www.facebook.com/share/19B3yYkAmw/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://www.tiktok.com/@orocafe01" target="_blank"><i class="fab fa-tiktok"></i></a>
         <a href="https://www.instagram.com/oro_cafee01" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
+    
     <div id="detailsPanel" class="details-panel">
-        <h2 id="panelTitle">اسم الباكدج</h2>
-        <div id="panelContent">التفاصيل هنا...</div>
+        <h2 id="panelTitle"></h2>
+        <div id="panelContent"></div>
+        <a href="#" class="back-to-menu" onclick="hideDetails(); return false;">العودة للقائمة ✨</a>
     </div>
 </div>
 <script>
     const data = {
-        hours: { title: "✨ مواعيد ORO Cafe ✨", content: `<p>أهلاً بحضرتك يا فندم 💛✨</p><p>📍 <span class="highlight-gold">طوال أيام الأسبوع:</span> من الساعة <span class="highlight-gold">8 صباحًا</span> إلى الساعة <span class="highlight-gold">1:30 بعد منتصف الليل</span>.</p><p>📍 <span class="highlight-gold">يوم الجمعة:</span> نتشرف باستقبالكم من الساعة <span class="highlight-gold">12 ظهرًا</span> إلى الساعة <span class="highlight-gold">1:30 بعد منتصف الليل</span>.</p><p style="text-align:center; margin-top:15px;">تنورونا في أي وقت ✨💛</p>` },
-        student: { title: "✨ باكدج الطلاب والمذاكرة ✨", content: `<p>أهلاً بحضرتك يا فندم 💛 عروض الطلاب والمذاكرة في Oro Cafe:</p><p>🔥 ساعة مذاكرة بـ <span class="highlight-gold">20 جنيه</span> فقط.</p><p>🔥 ساعتين مذاكرة بـ <span class="highlight-gold">35 جنيه</span> فقط.</p><p>🔥 أو احصل على <span class="highlight-gold">خصم 15%</span> على منيو المشروبات الباردة والديزرت.</p><p>🔥 ولو جاي مع أصحابك... <span class="highlight-gold">الرابع علينا هدية!</span> 🤭</p><p style="text-align:center; margin-top:15px;">في انتظاركم 💛✨</p>` },
-        birthday: { title: "✨ باكدج أعياد الميلاد والسبوع ✨", content: `<p>أهلاً بحضرتك يا فندم 💛 أسعار حجز الحفلات حسب عدد الأفراد:</p><ul><li><span class="highlight-gold">حجز ترابيزة واحدة (لـ 3 أفراد):</span> بدون رسوم عند طلب ديزرت أو مشروبات باردة من المنيو (في حالة التقديم فقط يكون السعر 300 جنيه).</li><li><span class="highlight-gold">أقل من 10 أفراد:</span> 800 جنيه.</li><li><span class="highlight-gold">من 10 لـ 20 فرد:</span> 1500 جنيه.</li><li><span class="highlight-gold">من 20 لـ 40 فرد:</span> 2800 جنيه.</li><li><span class="highlight-gold">من 40 لـ 80 فرد:</span> 3400 جنيه 🔥</li></ul><p>✔️ <span class="highlight-gold">السعر شامل:</span> حجز المكان بالكامل + الساوند سيستم.</p><p>✨ <span class="highlight-gold">خدمات اختيارية:</span> الديكور متاح من خلالنا، أو تقدروا تنسقوا مع أي حد من برا.</p><p style="text-align:center; color:#c5a059;">لو حابين الصور والتفاصيل كاملة تواصلوا معنا 💛</p>` },
-        wedding: { title: "⭐ باكدج الخطوبة وكتب الكتاب ⭐", content: `<p>أهلاً بحضرتك 💛 عرض الخطوبة وكتب الكتاب في قاعتنا الخاصة بالفخامة:</p><p>🔥 السعر الحالي: <span class="highlight-gold">3450 جنيه</span> بدلاً من <span class="highlight-red" style="text-decoration: line-through;">7500 جنيه</span> لفترة محدودة جدًا! ✨</p><p>✔️ <span class="highlight-gold">المميزات تشمل:</span> حجز المكان بالكامل، الساوند سيستم، والقاعة مكيفة بالكامل بالدور الثاني (تسع من 70 لـ 80 فردًا) ✨💛</p><p class="highlight-gold" style="margin-top:15px; border-bottom: 1px dashed #c5a059; padding-bottom:5px;">خدمات إضافية اختيارية:</p><p>🔹 <span class="highlight-gold">الديكور:</span> بنوفرلكم أشكال متنوعة ومميزة بأسعار خاصة، ومتاح تجيبوا مصمم ديكور من طرفكم.</p><p>🔹 <span class="highlight-gold">المشروبات والأكل:</span> متاح الطلب من المنيو، أو كانزات، أو علب جاتوه بأسعار تنافسية. (أو متاح تجيبوا الأكل من برا مع رسوم سيرفيس بسيطة 399 جنيه فقط).</p>` }
+        hours: { title: "مواعيد ORO Cafe", content: `<p>أهلاً بحضرتك يا فندم 💛✨</p><p>📍 <span class="highlight-gold">طوال أيام الأسبوع:</span> من الساعة 8 صباحًا إلى الساعة 1:30 بعد منتصف الليل.</p><p>📍 <span class="highlight-gold">يوم الجمعة:</span> من الساعة 12 ظهرًا إلى الساعة 1:30 بعد منتصف الليل.</p>` },
+        student: { title: "باكدج الطلاب والمذاكرة", content: `<p>عروض الطلاب والمذاكرة في Oro Cafe:</p><p>🔥 ساعة مذاكرة بـ 20 جنيه.</p><p>🔥 ساعتين مذاكرة بـ 35 جنيه.</p><p>🔥 خصم 15% على المشروبات الباردة والديزرت.</p><p>🔥 الرابع علينا هدية ✨</p>` },
+        birthday: { title: "باكدج أعياد الميلاد والسبوع", content: `<p>أسعار حجز الحفلات حسب عدد الأفراد:</p><ul><li>حجز ترابيزة لـ 3 أفراد: بدون رسوم عند طلب ديزرت أو مشروبات باردة (بدون طلب: 300 جنيه).</li><li>أقل من 10 أفراد: 800 جنيه.</li><li>من 10 لـ 20 فرد: 1500 جنيه.</li><li>من 20 لـ 40 فرد: 2800 جنيه.</li><li>من 40 لـ 80 فرد: 3400 جنيه 🔥</li></ul><p>السعر شامل حجز المكان بالكامل والساوند سيستم.</p>` },
+        wedding: { title: "باكدج الخطوبة وكتب الكتاب", content: `<p>عرض الخطوبة وكتب الكتاب في قاعتنا الخاصة:</p><p>🔥 السعر الحالي: 3450 جنيه بدلاً من <span class="highlight-red">7500 جنيه</span> لفترة محدودة! ✨</p><p>المميزات: حجز المكان بالكامل، ساوند سيستم، قاعة مكيفة (تسع 80 فردًا).</p>` }
     };
     function showDetails(key) {
         const panel = document.getElementById('detailsPanel');
-        const title = document.getElementById('panelTitle');
-        const content = document.getElementById('panelContent');
-        title.innerHTML = data[key].title;
-        content.innerHTML = data[key].content;
+        document.getElementById('panelTitle').innerHTML = data[key].title;
+        document.getElementById('panelContent').innerHTML = data[key].content;
         panel.style.display = 'block';
         panel.scrollIntoView({ behavior: 'smooth' });
+    }
+    function hideDetails() {
+        document.getElementById('detailsPanel').style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 </script>
 </body>
