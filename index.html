@@ -81,20 +81,6 @@
 
 <script>
     const data = {
-        hours: { title: "✨ مواعيد ORO Cafe ✨", content: `<p>أهلاً بحضرتك يا فندم 💛✨</p><p>📍 <span class="highlight-gold">طوال أيام الأسبوع:</span> من الساعة <span class="highlight-gold">8 صباحًا</span> إلى الساعة <span class="highlight-gold">1:30 بعد منتصف الليل</span>.</p><p>📍 <span class="highlight-gold">يوم الجمعة:</span> نتشرف باستقبالكم من الساعة <span class="highlight-gold">12 ظهرًا</span> إلى الساعة <span class="highlight-gold">1:30 بعد منتصف الليل</span>.</p>` },
-        student: { title: "✨ باكدج الطلاب والمذاكرة ✨", content: `<p>عروض الطلاب والمذاكرة في Oro Cafe:</p><p>🔥 ساعة مذاكرة بـ <span class="highlight-gold">20 جنيه</span> | ساعتين بـ <span class="highlight-gold">35 جنيه</span>.</p><p>🔥 خصم 15% على المشروبات والديزرت، والرابع هدية! 🤭</p>` },
-        birthday: { title: "✨ أعياد الميلاد والسبوع ✨", content: `<p>أسعار الحفلات:</p><ul><li>ترابيزة (3 أفراد): مجاناً أو 300ج.</li><li>أقل من 10 أفراد: 800 ج.</li><li>من 10 لـ 80 فرد: من 1500 لـ 3400 ج.</li></ul><p>السعر شامل المكان والساوند سيستم.</p>` },
-        wedding: { title: "⭐ باكدج الخطوبة وكتب الكتاب ⭐", content: `<p>عرض لفترة محدودة: <span class="highlight-gold">3450 جنيه</span> بدلاً من <span class="highlight-red">7500 جنيه</span>.</p><p>القاعة مكيفة وتسع 80 فرد، شاملة الساوند سيستم.</p>` }
-    };
-
-    function showDetails(key) {
-        const panel = document.getElementById('detailsPanel');
-        document.getElementById('panelTitle').innerHTML = data[key].title;
-        document.getElementById('panelContent').innerHTML = data[key].content;
-        panel.style.display = 'block';
-        panel.scrollIntoView({ behavior: 'smooth' });
-    }
-</script>
-
-</body>
-</html>
+        hours: {
+            title: "✨ مواعيد ORO Cafe ✨",
+            content:
