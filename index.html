@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oro Cafe - Welcome</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0d0d0d; color: #fff; direction: rtl; text-align: center; }
         
@@ -20,16 +19,14 @@
         
         .btn { position: absolute; background: rgba(255, 255, 255, 0); cursor: pointer; border: none; -webkit-tap-highlight-color: transparent; z-index: 10; }
         
+        /* أزرار تفاعلية شفافة فوق الكروت */
         .menu-btn { top: 21%; left: 5%; width: 42%; height: 21%; }
         .wedding-btn { top: 21%; right: 5%; width: 42%; height: 21%; }
         .birthday-btn { top: 44%; left: 5%; width: 90%; height: 17%; }
         .student-btn { top: 63%; left: 5%; width: 42%; height: 21%; }
         .hours-btn { top: 63%; right: 5%; width: 42%; height: 21%; }
 
-        /* شريط الأيقونات */
-        .social-links { display: flex; justify-content: center; gap: 20px; padding: 20px 0; background: #000; }
-        .social-links a { color: #c5a059; font-size: 30px; text-decoration: none; }
-
+        /* لوحة تفاصيل العروض الفخمة */
         .details-panel {
             margin: -20px 20px 20px 20px;
             padding: 25px;
@@ -38,7 +35,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(197, 160, 89, 0.2);
             display: none;
-            animation: fadeIn 0.4s ease-out;
+            animation: fadeIn 0.4s ease-out-into;
             text-align: right;
         }
         
@@ -60,17 +57,11 @@
 <div class="main-wrapper">
     <div class="bg-container">
         <a href="https://oro-cafe.github.io/ORO-Caf-/" class="btn menu-btn" target="_blank"></a>
+        
         <button class="btn wedding-btn" onclick="showDetails('wedding')"></button>
         <button class="btn birthday-btn" onclick="showDetails('birthday')"></button>
         <button class="btn student-btn" onclick="showDetails('student')"></button>
         <button class="btn hours-btn" onclick="showDetails('hours')"></button>
-    </div>
-
-    <div class="social-links">
-        <a href="https://wa.me/201098896637" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/share/19B3yYkAmw/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.tiktok.com/@orocafe01" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.instagram.com/oro_cafee01" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
 
     <div id="detailsPanel" class="details-panel">
@@ -139,6 +130,8 @@
         content.innerHTML = data[key].content;
         
         panel.style.display = 'block';
+        
+        // النزول التلقائي لأسفل لرؤية العرض بوضوح
         panel.scrollIntoView({ behavior: 'smooth' });
     }
 </script>
