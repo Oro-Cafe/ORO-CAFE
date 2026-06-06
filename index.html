@@ -7,10 +7,9 @@
     <style>
         body { margin: 0; background: #000; display: flex; justify-content: center; font-family: sans-serif; }
         .container { position: relative; width: 100%; max-width: 500px; }
-        img { width: 100%; display: block; }
+        img { width: 100%; height: auto; display: block; }
         .btn { position: absolute; background: transparent; border: none; cursor: pointer; z-index: 10; }
         
-        /* إحداثيات الأزرار */
         .btn-menu { top: 25%; left: 5%; width: 43%; height: 21%; }
         .btn-wedding { top: 25%; right: 5%; width: 43%; height: 21%; }
         .btn-birthday { top: 48%; left: 5%; width: 90%; height: 18%; }
@@ -24,7 +23,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="Welcome-bg.jpg.png" alt="ORO Cafe Menu">
+        <img src="Welcome-bg.jpg.png" alt="ORO Cafe" onerror="this.src='https://via.placeholder.com/500x800?text=Image+Not+Found'">
         
         <button class="btn btn-menu" onclick="show('menu')"></button>
         <button class="btn btn-wedding" onclick="show('wedding')"></button>
@@ -41,10 +40,6 @@
 
     <script>
         function show(type) {
-            const m = document.getElementById('modal');
-            const t = document.getElementById('modal-title');
-            const c = document.getElementById('modal-content');
-            
             const data = {
                 'menu': { title: "المنيو والأسعار", content: "• قهوة تركي: 25 EGP<br>• اسبريسو: 35 EGP<br>• كابتشينو: 50 EGP<br>• لاتيه: 55 EGP<br>• شاي: 20 EGP<br>• كلوب ساندوتش: 120 EGP" },
                 'wedding': { title: "عروض الخطوبة", content: "• 3499 ج: قاعة + ساوند.<br>• 5500 ج: قاعة + ساوند + ديكور وكوشة.<br>• 6900 ج (فضى): + 70 كانز.<br>• 7880 ج (ذهبي): + 70 جاتوه وباتيه.<br>• 9280 ج (VIP): كل ما سبق + 70 كانز." },
@@ -52,10 +47,9 @@
                 'student': { title: "باكدج الطلاب", content: "• ساعة: 20 ج.<br>• ساعتين: 35 ج.<br>• خصم 15% على المنيو.<br>• العرض الرابع: الرابع علينا هدية!" },
                 'time': { title: "مواعيد العمل", content: "• من 8 صباحاً إلى 1:30 بعد منتصف الليل.<br>• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل." }
             };
-
-            t.innerText = data[type].title;
-            c.innerHTML = data[type].content;
-            m.style.display = 'block';
+            document.getElementById('modal-title').innerText = data[type].title;
+            document.getElementById('modal-content').innerHTML = data[type].content;
+            document.getElementById('modal').style.display = 'block';
         }
         function closeModal() { document.getElementById('modal').style.display = 'none'; }
     </script>
