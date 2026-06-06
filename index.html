@@ -1,35 +1,53 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORO Cafe</title>
     <style>
-        body { margin: 0; padding: 0; background: #000; direction: rtl; }
-        .wrapper { max-width: 500px; margin: 0 auto; }
+        body { margin: 0; padding: 0; font-family: sans-serif; background-color: #000; color: #fff; text-align: center; }
+        .wrapper { max-width: 500px; margin: 0 auto; position: relative; }
         img { width: 100%; display: block; }
-        .btn { position: absolute; background: transparent; border: none; cursor: pointer; }
-        /* أماكن الأزرار بناءً على الصورة */
+        .btn { position: absolute; background: transparent; border: none; cursor: pointer; z-index: 10; }
         .wedding-btn { top: 21%; right: 5%; width: 42%; height: 21%; }
         .birthday-btn { top: 44%; left: 5%; width: 90%; height: 17%; }
-        .details { color: #fff; padding: 20px; text-align: right; display: none; border: 1px solid #c5a059; }
+        
+        #details { 
+            margin: 20px; padding: 25px; background: #1a1a1a; 
+            border: 2px solid #c5a059; border-radius: 15px; 
+            text-align: right; display: none; line-height: 2; font-size: 18px;
+        }
+        h2 { color: #c5a059; text-align: center; }
+        b { color: #c5a059; }
     </style>
 </head>
 <body>
-    <div class="wrapper" style="position: relative;">
+    <div class="wrapper">
         <img src="welcome-bg.jpg.png" alt="ORO Cafe">
         <button class="btn wedding-btn" onclick="show('wedding')"></button>
         <button class="btn birthday-btn" onclick="show('birthday')"></button>
     </div>
-    <div id="details" class="details"></div>
+    
+    <div id="details">
+        <h2 id="title"></h2>
+        <div id="content"></div>
+    </div>
 
     <script>
         function show(type) {
             const d = document.getElementById('details');
+            const t = document.getElementById('title');
+            const c = document.getElementById('content');
             d.style.display = 'block';
-            d.innerHTML = (type === 'wedding') 
-                ? "<h2>عروض الخطوبة</h2><p>• العرض الأول: 3499 ج<br>• العرض الثاني: 5500 ج<br>• الفضي: 6900 ج<br>• الذهبي: 7880 ج<br>• VIP: 9280 ج</p>"
-                : "<h2>عروض أعياد الميلاد</h2><p>• أقل من 5 أفراد: 100 ج<br>• 5-10 أفراد: 200 ج<br>• 10-20 فرد: 350 ج<br>• 20+ فرد: 50 ج للفرد</p>";
+            
+            if(type === 'wedding') {
+                t.innerText = "⭐ عروض الخطوبة وكتب الكتاب ⭐";
+                c.innerHTML = "القاعة مكيفة بالكامل (الدور الثاني) - تسع 80 فرد.<br>• <b>العرض الأول:</b> 3499 ج (مكان + ساوند).<br>• <b>العرض الثاني:</b> 5500 ج (مكان + ساوند + ديكور وكوشة).<br>• <b>العرض الفضي:</b> 6900 ج (العرض الثاني + 70 كانز).<br>• <b>العرض الذهبي:</b> 7880 ج (العرض الثاني + 70 علبة جاتوه مشكل).<br>• <b>عرض الـ VIP:</b> 9280 ج (العرض الثاني + 70 جاتوه + 70 كانز).<br><br>🎁 <b>عرض لفترة محدودة:</b> فوتوسيشن مجاني في الحديقة.<br>💡 <b>رسوم سيرفس (في حال التقديم فقط):</b> 499 ج.";
+            } else {
+                t.innerText = "✨ أعياد الميلاد والسبوع ✨";
+                c.innerHTML = "أهلاً بحضرتك يافندم 💛<br>متاح مكانين للاحتفال (الدور الثاني أو الحديقة الأمامية) 🔥<br><br>• <b>أقل من 5 أفراد:</b> 100 ج خدمة + الطلب من المنيو.<br>• <b>من 5 إلى 10 أفراد:</b> 200 ج خدمة + الطلب من المنيو.<br>• <b>من 10 إلى 20 فرد:</b> 350 ج خدمة + الطلب من المنيو.<br>• <b>20 فرد فأكثر:</b> 50 ج للفرد (لا يشترط الطلب من المنيو)، ولو طلبتم مشروبات باردة أو ديزرت ليكم خصم 10% 🎁.<br><br>✔️ السعر شامل المكان والساوند سيستم.<br>✨ <b>الديكور:</b> متاح تجيبوا متخصصين أو تعملوه بنفسكم.";
+            }
+            d.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
