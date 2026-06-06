@@ -7,9 +7,11 @@
     <style>
         body { margin: 0; background: #000; display: flex; justify-content: center; font-family: sans-serif; }
         .container { position: relative; width: 100%; max-width: 500px; }
+        /* استخدام الصورة الجديدة */
         img { width: 100%; height: auto; display: block; }
         .btn { position: absolute; background: transparent; border: none; cursor: pointer; z-index: 10; }
         
+        /* أماكن الأزرار */
         .btn-menu { top: 25%; left: 5%; width: 43%; height: 21%; }
         .btn-wedding { top: 25%; right: 5%; width: 43%; height: 21%; }
         .btn-birthday { top: 48%; left: 5%; width: 90%; height: 18%; }
@@ -23,7 +25,7 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://raw.githubusercontent.com/Oro-Cafe/ORO-CAFE/main/Welcome-bg.jpg.png" alt="ORO Cafe">
+        <img src="cafe.jpg.png" alt="ORO Cafe">
         
         <button class="btn btn-menu" onclick="show('menu')"></button>
         <button class="btn btn-wedding" onclick="show('wedding')"></button>
@@ -41,11 +43,11 @@
     <script>
         function show(type) {
             const data = {
-                'menu': { title: "المنيو والأسعار", content: "• قهوة تركي: 25 ج<br>• اسبريسو: 35 ج<br>• كابتشينو: 50 ج<br>• لاتيه: 55 ج<br>• شاي: 20 ج<br>• كلوب ساندوتش: 120 ج" },
-                'wedding': { title: "عروض الخطوبة", content: "• 3499 ج: قاعة + ساوند.<br>• 5500 ج: قاعة + ساوند + ديكور وكوشة.<br>• 6900 ج (فضى): + 70 كانز.<br>• 7880 ج (ذهبي): + 70 جاتوه وباتيه.<br>• 9280 ج (VIP): كل ما سبق + 70 كانز." },
-                'birthday': { title: "أعياد الميلاد والسبوع", content: "• أقل من 5 أفراد: 100 ج.<br>• 5-10 أفراد: 200 ج.<br>• 10-20 فرد: 350 ج.<br>• 20+ فرد: 50 ج للفرد (مع خصم 10% على المنيو)." },
-                'student': { title: "باكدج الطلاب", content: "• ساعة: 20 ج.<br>• ساعتين: 35 ج.<br>• خصم 15% على المنيو.<br>• العرض الرابع: الرابع علينا هدية!" },
-                'time': { title: "مواعيد العمل", content: "• من 8 صباحاً إلى 1:30 بعد منتصف الليل.<br>• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل." }
+                'menu': { title: "المنيو والأسعار", content: "• قهوة تركي: 25 ج<br>• اسبريسو: 35 ج<br>• كابتشينو: 50 ج<br>• لاتيه: 55 ج" },
+                'wedding': { title: "عروض الخطوبة", content: "• باكدج يبدأ من 3499 ج.<br>• شامل القاعة والساوند والديكور." },
+                'birthday': { title: "أعياد الميلاد", content: "• خصومات خاصة للمجموعات تبدأ من 100 ج." },
+                'student': { title: "باكدج الطلاب", content: "• عروض مميزة للطلاب بخصومات تصل لـ 15%." },
+                'time': { title: "مواعيد العمل", content: "• من 8 صباحاً حتى 1:30 بعد منتصف الليل." }
             };
             document.getElementById('modal-title').innerText = data[type].title;
             document.getElementById('modal-content').innerHTML = data[type].content;
