@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORO Cafe</title>
     <style>
-        body { font-family: sans-serif; background: #000; color: #fff; text-align: center; }
-        .btn-container { margin: 20px; }
-        button { background: #c5a059; color: #000; padding: 15px 30px; margin: 10px; border: none; cursor: pointer; font-size: 18px; font-weight: bold; border-radius: 10px; }
-        #display { margin-top: 20px; padding: 20px; background: #222; border: 1px solid #c5a059; }
+        body { margin: 0; padding: 0; background: #000; direction: rtl; }
+        .wrapper { max-width: 500px; margin: 0 auto; }
+        img { width: 100%; display: block; }
+        .btn { position: absolute; background: transparent; border: none; cursor: pointer; }
+        /* أماكن الأزرار بناءً على الصورة */
+        .wedding-btn { top: 21%; right: 5%; width: 42%; height: 21%; }
+        .birthday-btn { top: 44%; left: 5%; width: 90%; height: 17%; }
+        .details { color: #fff; padding: 20px; text-align: right; display: none; border: 1px solid #c5a059; }
     </style>
 </head>
 <body>
-    <h1>مرحباً بكم في ORO Cafe</h1>
-    <div class="btn-container">
-        <button onclick="show('birthday')">عروض أعياد الميلاد</button>
-        <button onclick="show('wedding')">عروض الخطوبة</button>
+    <div class="wrapper" style="position: relative;">
+        <img src="welcome-bg.jpg.png" alt="ORO Cafe">
+        <button class="btn wedding-btn" onclick="show('wedding')"></button>
+        <button class="btn birthday-btn" onclick="show('birthday')"></button>
     </div>
-    <div id="display">اضغط على أحد العروض لعرض التفاصيل</div>
+    <div id="details" class="details"></div>
 
     <script>
         function show(type) {
-            const display = document.getElementById('display');
-            if(type === 'birthday') {
-                display.innerHTML = "<h2>عروض أعياد الميلاد</h2><p>• أقل من 5 أفراد: 100 ج.<br>• من 5 لـ 10 أفراد: 200 ج.<br>• من 10 لـ 20 فرد: 350 ج.<br>• 20 فأكثر: 50 ج للفرد.</p>";
-            } else {
-                display.innerHTML = "<h2>عروض الخطوبة</h2><p>• العرض الأول: 3499 ج.<br>• العرض الثاني: 5500 ج.<br>• العرض الفضي: 6900 ج.<br>• العرض الذهبي: 7880 ج.<br>• عرض الـ VIP: 9280 ج.</p>";
-            }
+            const d = document.getElementById('details');
+            d.style.display = 'block';
+            d.innerHTML = (type === 'wedding') 
+                ? "<h2>عروض الخطوبة</h2><p>• العرض الأول: 3499 ج<br>• العرض الثاني: 5500 ج<br>• الفضي: 6900 ج<br>• الذهبي: 7880 ج<br>• VIP: 9280 ج</p>"
+                : "<h2>عروض أعياد الميلاد</h2><p>• أقل من 5 أفراد: 100 ج<br>• 5-10 أفراد: 200 ج<br>• 10-20 فرد: 350 ج<br>• 20+ فرد: 50 ج للفرد</p>";
         }
     </script>
 </body>
