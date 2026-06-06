@@ -5,25 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORO Cafe</title>
     <style>
-        body { margin: 0; background: #000; display: flex; justify-content: center; font-family: sans-serif; }
+        body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .container { position: relative; width: 100%; max-width: 500px; }
-        img { width: 100%; height: auto; display: block; }
+        img { width: 100%; display: block; }
         .btn { position: absolute; background: transparent; border: none; cursor: pointer; z-index: 10; }
-        
         .btn-menu { top: 25%; left: 5%; width: 43%; height: 21%; }
         .btn-wedding { top: 25%; right: 5%; width: 43%; height: 21%; }
         .btn-birthday { top: 48%; left: 5%; width: 90%; height: 18%; }
         .btn-student { top: 69%; left: 5%; width: 43%; height: 14%; }
         .btn-time { top: 69%; right: 5%; width: 43%; height: 14%; }
-        
         #modal { display: none; position: fixed; top: 10%; left: 5%; width: 90%; max-height: 80%; background: #1a1a1a; border: 2px solid #c5a059; border-radius: 20px; color: #fff; padding: 20px; z-index: 100; overflow-y: auto; }
         .close-btn { color: #c5a059; float: left; cursor: pointer; font-size: 24px; font-weight: bold; }
-        h2 { color: #c5a059; text-align: center; }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="Welcome-bg.jpg" alt="ORO Cafe" onerror="this.src='https://via.placeholder.com/500x800?text=Image+Not+Found'">
+        <img src="https://oro-cafe.github.io/ORO-CAFE/Welcome-bg.jpg" alt="ORO Cafe">
         
         <button class="btn btn-menu" onclick="show('menu')"></button>
         <button class="btn btn-wedding" onclick="show('wedding')"></button>
@@ -34,18 +31,18 @@
 
     <div id="modal">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2 id="modal-title"></h2>
+        <h2 id="modal-title" style="color:#c5a059; text-align:center;"></h2>
         <div id="modal-content"></div>
     </div>
 
     <script>
         function show(type) {
             const data = {
-                'menu': { title: "المنيو والأسعار", content: "• قهوة تركي: 25 EGP<br>• اسبريسو: 35 EGP<br>• كابتشينو: 50 EGP<br>• لاتيه: 55 EGP<br>• شاي: 20 EGP<br>• كلوب ساندوتش: 120 EGP" },
-                'wedding': { title: "عروض الخطوبة", content: "• 3499 ج: قاعة + ساوند.<br>• 5500 ج: قاعة + ساوند + ديكور وكوشة.<br>• 6900 ج (فضى): + 70 كانز.<br>• 7880 ج (ذهبي): + 70 جاتوه وباتيه.<br>• 9280 ج (VIP): كل ما سبق + 70 كانز." },
-                'birthday': { title: "أعياد الميلاد والسبوع", content: "• أقل من 5 أفراد: 100 ج.<br>• 5-10 أفراد: 200 ج.<br>• 10-20 فرد: 350 ج.<br>• 20+ فرد: 50 ج للفرد (مع خصم 10% على المنيو)." },
-                'student': { title: "باكدج الطلاب", content: "• ساعة: 20 ج.<br>• ساعتين: 35 ج.<br>• خصم 15% على المنيو.<br>• العرض الرابع: الرابع علينا هدية!" },
-                'time': { title: "مواعيد العمل", content: "• من 8 صباحاً إلى 1:30 بعد منتصف الليل.<br>• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل." }
+                'menu': { title: "المنيو", content: "• قهوة تركي: 25 ج<br>• اسبريسو: 35 ج<br>• كابتشينو: 50 ج<br>• لاتيه: 55 ج" },
+                'wedding': { title: "عروض الخطوبة", content: "• باكدج يبدأ من 3499 ج.<br>• شامل القاعة والساوند والديكور." },
+                'birthday': { title: "أعياد الميلاد", content: "• خصومات خاصة للمجموعات تبدأ من 100 ج." },
+                'student': { title: "باكدج الطلاب", content: "• عروض مميزة للطلاب بخصومات تصل لـ 15%." },
+                'time': { title: "مواعيد العمل", content: "• من 8 صباحاً حتى 1:30 بعد منتصف الليل." }
             };
             document.getElementById('modal-title').innerText = data[type].title;
             document.getElementById('modal-content').innerHTML = data[type].content;
