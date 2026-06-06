@@ -1,56 +1,60 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORO Cafe</title>
+    <title>Oro Cafe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { margin: 0; padding: 0; font-family: sans-serif; background-color: #000; color: #fff; text-align: center; }
-        .wrapper { max-width: 500px; margin: 0 auto; position: relative; }
-        img { width: 100%; display: block; }
-        .btn { position: absolute; background: transparent; border: none; cursor: pointer; z-index: 10; }
-        
-        /* إحداثيات الأزرار (مكانها على الصورة) */
-        .location-btn { top: 62%; left: 10%; width: 80%; height: 8%; }
-        .menu-btn { top: 72%; left: 10%; width: 80%; height: 8%; }
-        /* لو عندك أزرار تانية للعروض، ضيفيهم هنا بنفس التنسيق */
-
-        #details { 
-            margin: 20px; padding: 25px; background: #1a1a1a; 
-            border: 2px solid #c5a059; border-radius: 15px; 
-            text-align: right; display: none; line-height: 2; font-size: 18px;
-        }
-        h2 { color: #c5a059; text-align: center; }
-        b { color: #c5a059; }
+        body, html { margin: 0; padding: 0; font-family: sans-serif; background-color: #000; color: #fff; direction: rtl; text-align: center; }
+        .main-wrapper { max-width: 500px; margin: 0 auto; min-height: 100vh; background-color: #000; position: relative; padding-bottom: 40px; }
+        .bg-container { position: relative; width: 100%; height: 100vh; background: url('welcome-bg.jpg.png') no-repeat center top; background-size: contain; }
+        .btn { position: absolute; background: rgba(255, 255, 255, 0); cursor: pointer; border: none; z-index: 10; }
+        .menu-btn { top: 21%; left: 5%; width: 42%; height: 21%; }
+        .wedding-btn { top: 21%; right: 5%; width: 42%; height: 21%; }
+        .birthday-btn { top: 44%; left: 5%; width: 90%; height: 17%; }
+        .student-btn { top: 63%; left: 5%; width: 42%; height: 21%; }
+        .hours-btn { top: 63%; right: 5%; width: 42%; height: 21%; }
+        .social-links { display: flex; justify-content: center; gap: 25px; padding: 20px 0; }
+        .social-links a { color: #c5a059; font-size: 30px; text-decoration: none; }
+        .details-panel { margin: 20px; padding: 25px; background: #1a1a1a; border: 2px solid #c5a059; border-radius: 15px; display: none; text-align: right; }
+        .details-panel h2 { color: #c5a059; font-size: 20px; margin-bottom: 15px; border-bottom: 1px solid #c5a059; padding-bottom: 10px; text-align: center; }
+        .details-panel p, .details-panel li { color: #fff; font-size: 15px; line-height: 1.8; margin: 8px 0; }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <img src="welcome-bg.jpg.png" alt="ORO Cafe">
-        
-        <a href="حطي_رابط_الماب_هنا" class="btn location-btn"></a>
-        
-        <button class="btn menu-btn" onclick="show('menu')"></button>
+<div class="main-wrapper">
+    <div class="bg-container">
+        <a href="https://oro-cafe.github.io/ORO-Caf-/" class="btn menu-btn" target="_blank"></a>
+        <button class="btn wedding-btn" onclick="showDetails('wedding')"></button>
+        <button class="btn birthday-btn" onclick="showDetails('birthday')"></button>
+        <button class="btn student-btn" onclick="showDetails('student')"></button>
+        <button class="btn hours-btn" onclick="showDetails('hours')"></button>
     </div>
-    
-    <div id="details">
-        <h2 id="title"></h2>
-        <div id="content"></div>
+    <div class="social-links">
+        <a href="https://wa.me/201098896637" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/share/19B3yYkAmw/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@orocafe01" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/oro_cafee01" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-
-    <script>
-        function show(type) {
-            const d = document.getElementById('details');
-            const t = document.getElementById('title');
-            const c = document.getElementById('content');
-            d.style.display = 'block';
-            
-            if(type === 'menu') {
-                t.innerText = "📜 المنيو والعروض 📜";
-                c.innerHTML = "• <b>عروض الخطوبة:</b> تبدأ من 3499 ج.<br>• <b>أعياد الميلاد:</b> باكدجات تبدأ من 100 ج.<br>• <b>المشروبات:</b> تشكيلة واسعة من القهوة والمشروبات الباردة.<br>• <b>مواعيد العمل:</b> 8 صباحاً حتى 1 صباحاً.";
-            }
-            d.scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+    <div id="detailsPanel" class="details-panel">
+        <h2 id="panelTitle"></h2>
+        <div id="panelContent"></div>
+    </div>
+</div>
+<script>
+    const data = {
+        hours: { title: "✨مواعيدنا✨", content: "أهلاً بحضرتك يافندم 💛✨️<br>مواعيد ORO Cafe 💛<br>من الساعه 8 صباحًا إلى الساعة 1:30 بعد نصف الليل📍<br>يوم الجمعه فى استقبالكم من الساعة 12 ظهرًا إلى 1:30 بعد منتصف الليل 📍<br>تنورونا في اي وقت ✨️💛" },
+        student: { title: "✨باكدج الطلاب والمذاكرة✨", content: "أهلاً بحضرتك يافندم 💛<br>عروض الطلاب والمذاكرة في oro Cafe 💛✨️<br>🔥 ساعة مذاكرة بـ 20<br>🔥 ساعتين بـ 35<br>🔥 أو خصم 15% على منيو المشروبات الباردة و الديزرت<br>🔥 ولو جاي مع صحابك… الرابع علينا هدية 🤭<br>فى انتظاركم 💛✨️" },
+        birthday: { title: "✨باكدج أعياد الميلاد والسبوع✨", content: "أهلاً بحضرتك يافندم 💛<br>🔥 أسعار حسب عدد الأفراد:<br>• حجز ترابيزه واحده ل ٣ أفراد بيكون بدون رسوم عند طلب ديزرت أو مشروبات باردة من المنيو، ولكن في حالة التقديم فقط بيكون بسعر ٣٠٠ جنية 💛<br>• اقل من 10 أفراد: 800 جنية<br>• من 10 لـ 20 فرد: 1500 جنيه<br>• من 20 لـ 40 فرد: 2800 جنيه<br>• من 40 لـ 80 فرد: 3400 🔥<br>✔️ السعر شامل المكان + الساوند سيستم<br>✨ خدمات اختيارية:<br>• ديكور متاح (أو تقدروا تجيبوا حد من عندكم)<br>لو حابين الصور والتفاصيل كاملة ابعتهالك 💛<br>تنورونا💛🤗" },
+        wedding: { title: "⭐باكدج الخطوبة وكتب الكتاب⭐", content: "عرض الخطوبه وكتب الكتاب 💛<br>السعر 3450 🔥 بدل 7500 لفترة محدودة ✨️<br>السعر شامل المكان والساوند سيستم والقاعه مكيفة بالكامل.<br>القاعة موجودة بالدور الثاني من الكافية تسع متوسط 70 ل 80 فرد ✨💛<br>خدمات اضافيه اختيارية:<br>*الديكور :<br>• بنوفرلكم أشكال متنوعة تختاروا منها بسعر مميز جداً، أو تقدروا انتوا تجيبوا حد يعمل الديكور الخاص بيكوا لو حابين .✨<br>* المشروبات والأكل:<br>• متاح الطلب من خلالنا من المنيو ، أو كانزات ، أو علب جاتوه بأسعار تنافسيه جداً.<br>• ومتاح الطلب من خلالكم واحنا نقدم وبيكون في رسوم سيرفس بسيطة بسعر ٣٩٩ جنيه فقط ." }
+    };
+    function showDetails(key) {
+        document.getElementById('panelTitle').innerHTML = data[key].title;
+        document.getElementById('panelContent').innerHTML = data[key].content;
+        document.getElementById('detailsPanel').style.display = 'block';
+        document.getElementById('detailsPanel').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
 </body>
 </html>
