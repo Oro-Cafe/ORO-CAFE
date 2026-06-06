@@ -1,60 +1,64 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oro Cafe</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>ORO Cafe - Welcome</title>
     <style>
-        body, html { margin: 0; padding: 0; font-family: sans-serif; background-color: #000; color: #fff; direction: rtl; text-align: center; }
-        .main-wrapper { max-width: 500px; margin: 0 auto; min-height: 100vh; background-color: #000; position: relative; padding-bottom: 40px; }
-        .bg-container { position: relative; width: 100%; height: 100vh; background: url('welcome-bg.jpg.png') no-repeat center top; background-size: contain; }
-        .btn { position: absolute; background: rgba(255, 255, 255, 0); cursor: pointer; border: none; z-index: 10; }
-        .menu-btn { top: 21%; left: 5%; width: 42%; height: 21%; }
-        .wedding-btn { top: 21%; right: 5%; width: 42%; height: 21%; }
-        .birthday-btn { top: 44%; left: 5%; width: 90%; height: 17%; }
-        .student-btn { top: 63%; left: 5%; width: 42%; height: 21%; }
-        .hours-btn { top: 63%; right: 5%; width: 42%; height: 21%; }
-        .social-links { display: flex; justify-content: center; gap: 25px; padding: 20px 0; }
-        .social-links a { color: #c5a059; font-size: 30px; text-decoration: none; }
-        .details-panel { margin: 20px; padding: 25px; background: #1a1a1a; border: 2px solid #c5a059; border-radius: 15px; display: none; text-align: right; }
-        .details-panel h2 { color: #c5a059; font-size: 20px; margin-bottom: 15px; border-bottom: 1px solid #c5a059; padding-bottom: 10px; text-align: center; }
-        .details-panel p, .details-panel li { color: #fff; font-size: 15px; line-height: 1.8; margin: 8px 0; }
+        body { margin: 0; background: #000; display: flex; justify-content: center; font-family: sans-serif; }
+        .container { position: relative; width: 100%; max-width: 500px; }
+        img { width: 100%; display: block; }
+        .btn { position: absolute; background: transparent; border: none; cursor: pointer; z-index: 10; }
+        
+        /* ضبط إحداثيات الأزرار بناءً على الصورة */
+        .btn-menu { top: 25%; left: 5%; width: 43%; height: 21%; }
+        .btn-wedding { top: 25%; right: 5%; width: 43%; height: 21%; }
+        .btn-birthday { top: 48%; left: 5%; width: 90%; height: 18%; }
+        .btn-student { top: 69%; left: 5%; width: 43%; height: 14%; }
+        .btn-time { top: 69%; right: 5%; width: 43%; height: 14%; }
+        
+        /* مودال العروض */
+        #modal { display: none; position: fixed; top: 10%; left: 5%; width: 90%; max-height: 80%; background: #1a1a1a; border: 2px solid #c5a059; border-radius: 20px; color: #fff; padding: 20px; z-index: 100; overflow-y: auto; }
+        .close-btn { color: #c5a059; float: left; cursor: pointer; font-size: 24px; font-weight: bold; }
+        h2 { color: #c5a059; text-align: center; }
     </style>
 </head>
 <body>
-<div class="main-wrapper">
-    <div class="bg-container">
-        <a href="https://oro-cafe.github.io/ORO-Caf-/" class="btn menu-btn" target="_blank"></a>
-        <button class="btn wedding-btn" onclick="showDetails('wedding')"></button>
-        <button class="btn birthday-btn" onclick="showDetails('birthday')"></button>
-        <button class="btn student-btn" onclick="showDetails('student')"></button>
-        <button class="btn hours-btn" onclick="showDetails('hours')"></button>
+    <div class="container">
+        <img src="1000154317.jpg" alt="ORO Cafe Menu">
+        
+        <button class="btn btn-menu" onclick="show('menu')"></button>
+        <button class="btn btn-wedding" onclick="show('wedding')"></button>
+        <button class="btn btn-birthday" onclick="show('birthday')"></button>
+        <button class="btn btn-student" onclick="show('student')"></button>
+        <button class="btn btn-time" onclick="show('time')"></button>
     </div>
-    <div class="social-links">
-        <a href="https://wa.me/201098896637" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://www.facebook.com/share/19B3yYkAmw/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.tiktok.com/@orocafe01" target="_blank"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.instagram.com/oro_cafee01" target="_blank"><i class="fab fa-instagram"></i></a>
+
+    <div id="modal">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <div id="modal-content"></div>
     </div>
-    <div id="detailsPanel" class="details-panel">
-        <h2 id="panelTitle"></h2>
-        <div id="panelContent"></div>
-    </div>
-</div>
-<script>
-    const data = {
-        hours: { title: "✨مواعيدنا✨", content: "أهلاً بحضرتك يافندم 💛✨️<br>مواعيد ORO Cafe 💛<br>من الساعه 8 صباحًا إلى الساعة 1:30 بعد نصف الليل📍<br>يوم الجمعه فى استقبالكم من الساعة 12 ظهرًا إلى 1:30 بعد منتصف الليل 📍<br>تنورونا في اي وقت ✨️💛" },
-        student: { title: "✨باكدج الطلاب والمذاكرة✨", content: "أهلاً بحضرتك يافندم 💛<br>عروض الطلاب والمذاكرة في oro Cafe 💛✨️<br>🔥 ساعة مذاكرة بـ 20<br>🔥 ساعتين بـ 35<br>🔥 أو خصم 15% على منيو المشروبات الباردة و الديزرت<br>🔥 ولو جاي مع صحابك… الرابع علينا هدية 🤭<br>فى انتظاركم 💛✨️" },
-        birthday: { title: "✨باكدج أعياد الميلاد والسبوع✨", content: "أهلاً بحضرتك يافندم 💛<br>🔥 أسعار حسب عدد الأفراد:<br>• حجز ترابيزه واحده ل ٣ أفراد بيكون بدون رسوم عند طلب ديزرت أو مشروبات باردة من المنيو، ولكن في حالة التقديم فقط بيكون بسعر ٣٠٠ جنية 💛<br>• اقل من 10 أفراد: 800 جنية<br>• من 10 لـ 20 فرد: 1500 جنيه<br>• من 20 لـ 40 فرد: 2800 جنيه<br>• من 40 لـ 80 فرد: 3400 🔥<br>✔️ السعر شامل المكان + الساوند سيستم<br>✨ خدمات اختيارية:<br>• ديكور متاح (أو تقدروا تجيبوا حد من عندكم)<br>لو حابين الصور والتفاصيل كاملة ابعتهالك 💛<br>تنورونا💛🤗" },
-        wedding: { title: "⭐باكدج الخطوبة وكتب الكتاب⭐", content: "عرض الخطوبه وكتب الكتاب 💛<br>السعر 3450 🔥 بدل 7500 لفترة محدودة ✨️<br>السعر شامل المكان والساوند سيستم والقاعه مكيفة بالكامل.<br>القاعة موجودة بالدور الثاني من الكافية تسع متوسط 70 ل 80 فرد ✨💛<br>خدمات اضافيه اختيارية:<br>*الديكور :<br>• بنوفرلكم أشكال متنوعة تختاروا منها بسعر مميز جداً، أو تقدروا انتوا تجيبوا حد يعمل الديكور الخاص بيكوا لو حابين .✨<br>* المشروبات والأكل:<br>• متاح الطلب من خلالنا من المنيو ، أو كانزات ، أو علب جاتوه بأسعار تنافسيه جداً.<br>• ومتاح الطلب من خلالكم واحنا نقدم وبيكون في رسوم سيرفس بسيطة بسعر ٣٩٩ جنيه فقط ." }
-    };
-    function showDetails(key) {
-        document.getElementById('panelTitle').innerHTML = data[key].title;
-        document.getElementById('panelContent').innerHTML = data[key].content;
-        document.getElementById('detailsPanel').style.display = 'block';
-        document.getElementById('detailsPanel').scrollIntoView({ behavior: 'smooth' });
-    }
-</script>
+
+    <script>
+        function show(type) {
+            const m = document.getElementById('modal');
+            const t = document.getElementById('modal-title');
+            const c = document.getElementById('modal-content');
+            
+            const data = {
+                'menu': { title: "المنيو والأسعار", content: "• قهوة تركي: 25 EGP<br>• اسبريسو: 35 EGP<br>• كابتشينو: 50 EGP<br>• لاتيه: 55 EGP<br>• شاي: 20 EGP<br>• كلوب ساندوتش: 120 EGP" },
+                'wedding': { title: "عروض الخطوبة", content: "<b>عرض 3499:</b> قاعة + ساوند.<br><b>عرض 5500:</b> قاعة + ساوند + ديكور وكوشة.<br><b>عرض فضي 6900:</b> + 70 كانز.<br><b>عرض ذهبي 7880:</b> + 70 قطعة جاتوه وباتيه.<br><b>VIP 9280:</b> كل ما سبق + 70 كانز." },
+                'birthday': { title: "أعياد الميلاد والسبوع", content: "• أقل من 5 أفراد: 100 ج.<br>• 5-10 أفراد: 200 ج.<br>• 10-20 فرد: 350 ج.<br>• 20+ فرد: 50 ج للفرد (مع خصم 10% على المنيو)." },
+                'student': { title: "باكدج الطلاب", content: "• ساعة: 20 ج.<br>• ساعتين: 35 ج.<br>• خصم 15% على المنيو.<br>• العرض الرابع: الرابع علينا هدية!" },
+                'time': { title: "مواعيد العمل", content: "• من 8 صباحاً إلى 1:30 بعد منتصف الليل.<br>• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل." }
+            };
+
+            t.innerText = data[type].title;
+            c.innerHTML = data[type].content;
+            m.style.display = 'block';
+        }
+        function closeModal() { document.getElementById('modal').style.display = 'none'; }
+    </script>
 </body>
 </html>
