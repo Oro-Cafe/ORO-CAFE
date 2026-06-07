@@ -9,119 +9,137 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #111;
-  color: #fff;
-}
-
-/* الصورة الرئيسية */
-.hero {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-}
-
-.hero img {
-  width: 100%;
-  display: block;
-}
-
-/* أزرار فوق الصورة */
-.btn {
-  position: absolute;
-  width: 80%;
-  left: 10%;
-  padding: 12px;
-  background: rgba(0,0,0,0.6);
   color: white;
   text-align: center;
-  border: 1px solid #fff;
-  cursor: pointer;
-  border-radius: 10px;
 }
 
-.btn:hover {
-  background: gold;
-  color: black;
+/* الصورة */
+img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin: auto;
 }
-
-.btn.about { top: 20%; }
-.btn.menu { top: 35%; }
-.btn.contact { top: 50%; }
-.btn.hours { top: 65%; }
 
 /* الأقسام */
 .section {
   display: none;
   padding: 20px;
-  text-align: center;
+  max-width: 500px;
+  margin: auto;
 }
 
 .active {
   display: block;
 }
 
-.close {
-  margin-top: 20px;
+/* زر الإغلاق */
+.close-btn {
+  margin-top: 15px;
   padding: 10px 20px;
   background: crimson;
   border: none;
   color: white;
   cursor: pointer;
+  border-radius: 8px;
+}
+
+/* تحسين بسيط */
+h2 {
+  color: gold;
 }
 </style>
 </head>
 
 <body>
 
-<!-- الصورة + الأزرار -->
-<div class="hero">
+<!-- 🔥 الصورة الأساسية -->
+<img src="cafe.jpg.png" usemap="#oromap" alt="ORO CAFE">
 
-  <img src="cafe.jpg.png" alt="ORO CAFE">
+<!-- 🔥 أماكن الضغط داخل الصورة -->
+<map name="oromap">
 
-  <div class="btn about" onclick="show('about')">About Us</div>
-  <div class="btn menu" onclick="show('menu')">Menu</div>
-  <div class="btn contact" onclick="show('contact')">Contact</div>
-  <div class="btn hours" onclick="show('hours')">Working Hours</div>
+  <!-- About -->
+  <area shape="rect" coords="40,120,460,220"
+        href="javascript:void(0)"
+        onclick="show('about')">
 
-</div>
+  <!-- Menu -->
+  <area shape="rect" coords="40,240,460,340"
+        href="javascript:void(0)"
+        onclick="show('menu')">
 
-<!-- الأقسام -->
+  <!-- Contact -->
+  <area shape="rect" coords="40,360,460,460"
+        href="javascript:void(0)"
+        onclick="show('contact')">
+
+  <!-- Working Hours -->
+  <area shape="rect" coords="40,480,460,580"
+        href="javascript:void(0)"
+        onclick="show('hours')">
+
+</map>
+
+<!-- 🔥 المحتوى -->
 
 <div id="about" class="section">
   <h2>About ORO CAFE</h2>
-  <p>Welcome to ORO Cafe - cozy place, best coffee & desserts ☕🍰</p>
-  <button class="close" onclick="closeAll()">Close</button>
+  <p>Welcome to ORO Cafe 💛✨  
+  Cozy place, best coffee & desserts ☕🍰</p>
+  <button class="close-btn" onclick="closeAll()">Close</button>
 </div>
 
 <div id="menu" class="section">
-  <h2>Our Menu</h2>
-  <p>Coffee - Espresso - Latte - Desserts - Cold Drinks</p>
-  <button class="close" onclick="closeAll()">Close</button>
+  <h2>Menu</h2>
+  <p>
+    Espresso ☕<br>
+    Latte ☕<br>
+    Cappuccino ☕<br>
+    Cold Drinks 🧊<br>
+    Desserts 🍰
+  </p>
+  <button class="close-btn" onclick="closeAll()">Close</button>
 </div>
 
 <div id="contact" class="section">
   <h2>Contact Us</h2>
-  <p>Message us on Facebook page or visit us 📍</p>
-  <button class="close" onclick="closeAll()">Close</button>
+  <p>
+    📍 Visit us at ORO Cafe<br>
+    📩 Message us on Facebook page<br>
+    📞 Available for reservations
+  </p>
+  <button class="close-btn" onclick="closeAll()">Close</button>
 </div>
 
 <div id="hours" class="section">
   <h2>Working Hours</h2>
-  <p>From 8 AM to 1:30 AM</p>
-  <button class="close" onclick="closeAll()">Close</button>
+  <p>
+    Open daily:<br>
+    🕗 8:00 AM<br>
+    🌙 1:30 AM
+  </p>
+  <button class="close-btn" onclick="closeAll()">Close</button>
 </div>
 
+<!-- 🔥 التحكم -->
 <script>
 function show(id) {
   let sections = document.querySelectorAll(".section");
-  sections.forEach(sec => sec.classList.remove("active"));
+
+  sections.forEach(sec => {
+    sec.classList.remove("active");
+  });
 
   document.getElementById(id).classList.add("active");
+
+  // ينزل لتحت تلقائي
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
 function closeAll() {
-  let sections = document.querySelectorAll(".section");
-  sections.forEach(sec => sec.classList.remove("active"));
+  document.querySelectorAll(".section")
+    .forEach(sec => sec.classList.remove("active"));
 }
 </script>
 
