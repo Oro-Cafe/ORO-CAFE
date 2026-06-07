@@ -29,9 +29,10 @@
     <a onclick="show('students')" class="btn-link" style="top: 60%; left: 10%; width: 35%; height: 12%;"></a>
     <a onclick="show('times')" class="btn-link" style="top: 60%; left: 55%; width: 35%; height: 12%;"></a>
 
-    <a href="https://www.facebook.com/share/18qc1vY1iN/" target="_blank" class="btn-link" style="top: 88%; left: 28%; width: 10%; height: 8%;"></a>
-    <a href="https://www.instagram.com/oro_cafee01" target="_blank" class="btn-link" style="top: 88%; left: 45%; width: 10%; height: 8%;"></a>
-    <a href="https://www.tiktok.com/@orocafe01" target="_blank" class="btn-link" style="top: 88%; left: 62%; width: 10%; height: 8%;"></a>
+    <a href="https://www.facebook.com/share/18qc1vY1iN/" target="_blank" class="btn-link" style="top: 88%; left: 24%; width: 9%; height: 8%;"></a>
+    <a href="https://www.instagram.com/oro_cafee01" target="_blank" class="btn-link" style="top: 88%; left: 38%; width: 9%; height: 8%;"></a>
+    <a href="https://www.tiktok.com/@orocafe01" target="_blank" class="btn-link" style="top: 88%; left: 52%; width: 9%; height: 8%;"></a>
+    <a href="https://wa.me/201234567890" target="_blank" class="btn-link" style="top: 88%; left: 66%; width: 9%; height: 8%;"></a>
 </div>
 
 <div id="modal" class="modal" onclick="closeModal()">
@@ -47,4 +48,17 @@
         menu: { title: "المنيو والأسعار", body: "تفضلوا بزيارة المنيو من هنا:\nhttps://oro-cafe.github.io/ORO-Caf-/" },
         engagement: { title: "عروض الخطوبة وكتب الكتاب", body: "• عرض 3499: قاعة مكيفة + ساوند سيستم.\n• عرض 5500: قاعة + ساوند + ديكور + كوشة.\n• الفضي 6900: باكدج كامل + 70 كانز.\n• الذهبي 7880: باكدج كامل + 70 علبة ضيافة.\n• VIP 9280: باكدج كامل + 70 جاتوه و 70 كانز." },
         birthday: { title: "أعياد الميلاد والسبوع", body: "• أقل من 5 أفراد: 100ج.\n• 5-10 أفراد: 200ج.\n• 10-20 فرد: 350ج.\n• 20 فرد فأكثر: 50ج للفرد + خصم 10% على المنيو." },
-        students: { title: "باكدج الطلاب والمذاكرة", body: "• ساعة بـ 20ج | ساع
+        students: { title: "باكدج الطلاب والمذاكرة", body: "• ساعة بـ 20ج | ساعتين بـ 35ج.\n• خصم 15% على المشروبات والديزرت.\n• الرابع مجاناً!" },
+        times: { title: "مواعيدنا", body: "• يومياً: من 8 صباحاً إلى 1:30 بعد منتصف الليل.\n• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل." }
+    };
+
+    function show(id) {
+        document.getElementById('modal-title').innerText = content[id].title;
+        document.getElementById('modal-body').innerText = content[id].body;
+        document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal() { document.getElementById('modal').style.display = 'none'; }
+</script>
+
+</body>
+</html>
