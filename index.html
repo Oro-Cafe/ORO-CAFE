@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORO Cafe</title>
     <style>
-        body { margin: 0; background: #000; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; justify-content: center; }
-        .wrapper { position: relative; width: 100%; max-width: 500px; }
+        body { margin: 0; background: #000; font-family: sans-serif; text-align: center; }
+        .wrapper { position: relative; width: 100%; max-width: 500px; margin: auto; }
         .main-img { width: 100%; display: block; }
         .btn-link { position: absolute; cursor: pointer; opacity: 0; z-index: 10; }
         
-        /* تصميم صفحة المحتوى */
-        #content-area { display: none; background: #d4af37; color: #000; min-height: 100vh; padding: 30px; text-align: center; }
-        .back-btn { margin-top: 30px; padding: 12px 40px; background: #000; color: #d4af37; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; }
+        #content-area { display: none; background: #d4af37; min-height: 100vh; padding: 20px; color: #000; }
+        .back-btn { margin-top: 30px; padding: 15px 40px; background: #000; color: #d4af37; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; }
     </style>
 </head>
 <body>
@@ -33,12 +32,4 @@
 </div>
 
 <div id="content-area">
-    <h2 id="title" style="font-size: 28px;"></h2>
-    <div id="body" style="font-size: 20px; line-height: 2; white-space: pre-line; margin-top: 20px;"></div>
-    <button class="back-btn" onclick="back()">رجوع للرئيسية</button>
-</div>
-
-<script>
-    const data = {
-        engagement: { title: "عروض الخطوبة وكتب الكتاب", body: "• عرض 3499: قاعة مكيفة + ساوند سيستم.\n• عرض 5500: قاعة + ساوند + ديكور + كوشة.\n• الفضي 6900: باكدج كامل + 70 كانز.\n• الذهبي 7880: باكدج كامل + 70 علبة ضيافة.\n• VIP 9280: باكدج كامل + 70 جاتوه و 70 كانز." },
-        birthday: { title: "أعياد الميلاد والسبوع", body: "• أقل من 5 أفراد: 100ج.\n• 5-10 أفراد: 200ج.\n• 10-20 فرد: 350ج.\n• 20 فرد فأكثر
+    <h2 id="title">
