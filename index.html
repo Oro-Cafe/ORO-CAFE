@@ -8,53 +8,42 @@
         body { margin: 0; background: #000; text-align: center; font-family: sans-serif; }
         .wrapper { position: relative; width: 100%; max-width: 500px; margin: auto; }
         .main-img { width: 100%; display: block; }
-        .click-area { position: absolute; cursor: pointer; z-index: 100; }
         
-        /* صفحة المحتوى الفاخرة */
+        /* الأزرار الفعالة */
+        .btn { position: absolute; cursor: pointer; z-index: 1000; border: 1px solid rgba(212, 175, 55, 0.2); }
+        
         #content-area { display: none; background: #000; min-height: 100vh; padding: 25px; color: #d4af37; text-align: right; }
-        .back-btn { margin-top: 30px; padding: 15px 40px; background: #d4af37; color: #000; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; display: block; margin-left: auto; margin-right: auto; }
-        h2 { color: #d4af37; text-align: center; }
+        .back-btn { margin-top: 30px; padding: 15px 40px; background: #d4af37; color: #000; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; display: block; margin: 30px auto; }
     </style>
 </head>
 <body>
 
 <div id="main-wrapper" class="wrapper">
     <img src="cafe.jpg.png" alt="ORO Cafe" class="main-img">
-    <a href="https://oro-cafe.github.io/ORO-Caf-/" target="_blank" class="click-area" style="top: 22%; left: 10%; width: 35%; height: 12%;"></a>
-    <div onclick="showContent('engagement')" class="click-area" style="top: 22%; left: 55%; width: 35%; height: 12%;"></div>
-    <div onclick="showContent('birthday')" class="click-area" style="top: 40%; left: 10%; width: 80%; height: 12%;"></div>
-    <div onclick="showContent('students')" class="click-area" style="top: 60%; left: 10%; width: 35%; height: 12%;"></div>
-    <div onclick="showContent('times')" class="click-area" style="top: 60%; left: 55%; width: 35%; height: 12%;"></div>
+    
+    <a href="https://oro-cafe.github.io/ORO-Caf-/" target="_blank" class="btn" style="top: 22%; left: 10%; width: 35%; height: 12%;"></a>
+    <div onclick="showContent('engagement')" class="btn" style="top: 22%; left: 55%; width: 35%; height: 12%;"></div>
+    <div onclick="showContent('birthday')" class="btn" style="top: 40%; left: 10%; width: 80%; height: 12%;"></div>
+    <div onclick="showContent('students')" class="btn" style="top: 60%; left: 10%; width: 35%; height: 12%;"></div>
+    <div onclick="showContent('times')" class="btn" style="top: 60%; left: 55%; width: 35%; height: 12%;"></div>
 
-    <a href="https://www.facebook.com/share/18qc1vY1iN/" target="_blank" class="click-area" style="top: 89%; left: 24%; width: 9%; height: 7%;"></a>
-    <a href="https://www.instagram.com/oro_cafee01" target="_blank" class="click-area" style="top: 89%; left: 38%; width: 9%; height: 7%;"></a>
-    <a href="https://www.tiktok.com/@orocafe01" target="_blank" class="click-area" style="top: 89%; left: 52%; width: 9%; height: 7%;"></a>
+    <a href="https://www.facebook.com/share/18qc1vY1iN/" target="_blank" class="btn" style="top: 89%; left: 24%; width: 9%; height: 7%;"></a>
+    <a href="https://www.instagram.com/oro_cafee01" target="_blank" class="btn" style="top: 89%; left: 38%; width: 9%; height: 7%;"></a>
+    <a href="https://www.tiktok.com/@orocafe01" target="_blank" class="btn" style="top: 89%; left: 52%; width: 9%; height: 7%;"></a>
 </div>
 
 <div id="content-area">
-    <h2 id="title"></h2>
+    <h2 id="title" style="text-align: center;"></h2>
     <p id="body" style="font-size: 19px; line-height: 2; white-space: pre-line;"></p>
     <button class="back-btn" onclick="back()">رجوع للرئيسية</button>
 </div>
 
 <script>
     const data = {
-        engagement: { 
-            title: "عروض الخطوبة وكتب الكتاب", 
-            body: "عروض الخطوبه وكتب الكتاب لفترة محدوده 💛\n\n• العرض الاول : السعر 3499 🔥 \nالسعر شامل قاعة مكيفة بالكامل والساوند سيستم ، بدون ديكور .\n\n• العرض الثاني : السعر 5500🔥 \nالسعر شامل قاعة مكيفة بالكامل والساوند سيستم والديكور والكوشة .\n\n• العرض الفضى : السعر 6900 🔥\nشامل قاعة مكيفة بالكامل والساوند سيستم والديكور والكوشة وضيافة للمدعوين كانزات ( عدد ٧٠ علبة كانز ) .\n\n• العرض الذهبى : السعر 7880🔥\nشامل قاعة مكيفة والساوند سيستم والقاعه والديكور والكوشة وضيافه للمدعوين عباره عن 70 علبة جاتوه تشمل قطعة جاتوه وقطعه باتية وقطعة شيكولاته 💛\n\n• عرض ال VIP : السعر 9280🔥 \nشامل قاعة مكيفة بالكامل والساوند سيستم والديكور والكوشة وضيافة للحضور عبارة عن 70 علبة جاتوه و 70 علبة كانز 😎💛\n\n✨ معلومات إضافية:\n- القاعة بالدور الثاني تسع متوسط 80 فرد ومكيفة بالكامل ✨💛\n- متاح تنفيذ ديكورات خاصة بأسعار تنافسية.\n- متاح فوتوسيشن في الحديقه لفترة محدوده 🎁.\n- رسوم سيرفس بسيطة (499ج) فقط في حالة الطلب من خارج المكان." 
-        },
-        birthday: { 
-            title: "عروض أعياد الميلاد والسبوع", 
-            body: "أهلاً بحضرتك يافندم 💛\nعروض أعياد الميلاد والسبوع ، متاح مكانين تختار منهم 🔥 :\n١. المكان بالدور الثاني \n٢. الحديقه الموجودة امام الكافية\n\n✍️ العرض الاول (شامل المكانين حسب اختيارك 👆) :\nاقل من 5 أفراد: 100 جنية + الطلب من منيو المشروبات البارده او الديزرت.\n\nالعرض الثاني:\nمن 5 الي 10 أفراد: ٢٠٠ جنية + الطلب من منيو المشروبات والديزرت ✨💛\n\n✍️ العرض الثالث (شامل المكانين حسب اختيارك👆) :\nمن ١٠ أفراد ل ٢٠ فرد: ٣٥٠ جنية + الطلب من منيو المشروبات والديزرت.\n\n✍️ العرض الرابع (حجز الدور الثاني) :\n• من 20 فرد فأكثر : الفرد ب ٥٠ جنية فقط 🔥\nفي هذا العرض لا يشترط الطلب من المنيو، ولكن عند الطلب من منيو المشروبات البارده او الديزرت، ORO Cafe عاملك مفاجأة أن يكون ليكوا خصم ١٠% على الفاتورة 🎁 .\n\nالسعر شامل المكان والساوند سيستم فقط." 
-        },
-        students: { 
-            title: "باكدج الطلاب والمذاكرة", 
-            body: "أهلاً بحضرتك يافندم 💛\nباكدج الطلاب والمذاكرة ✨💛\n\n🔥 ساعة مذاكرة بـ 20\n🔥 ساعتين بـ 35\n🔥 أو خصم 15% على منيو المشروبات الباردة والديزرت\n🔥 ولو جاي مع صحابك... الرابع علينا هدية 🤭\n\nفي انتظاركم ✨💛" 
-        },
-        times: { 
-            title: "مواعيد العمل", 
-            body: "• يومياً: من 8 صباحاً إلى 1:30 بعد منتصف الليل.\n• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل.\nفي انتظاركم دائماً في ORO Cafe ✨💛" 
-        }
+        engagement: { title: "عروض الخطوبة وكتب الكتاب", body: "عروض الخطوبه وكتب الكتاب لفترة محدوده 💛\n\n• العرض الاول : السعر 3499 🔥 \nالسعر شامل قاعة مكيفة بالكامل والساوند سيستم ، بدون ديكور .\n\n• العرض الثاني : السعر 5500🔥  \nالسعر شامل قاعة مكيفة بالكامل والساوند سيستم والديكور والكوشة .\n\n• العرض الفضى : السعر 6900 🔥\nشامل قاعة مكيفة بالكامل والساوند سيستم والديكور والكوشة وضيافة للمدعوين كانزات ( عدد ٧٠  علبة كانز ) .\n\n• العرض الذهبى : السعر 7880🔥\nشامل قاعة مكيفة والساوند سيستم والقاعه والديكور والكوشة وضيافه للمدعوين عباره عن 70 علبة جاتوه تشمل قطعة جاتوه وقطعه باتية وقطعة شيكولاته 💛\n\n• عرض ال VIP : السعر 9280🔥 \nشامل قاعة مكيفة بالكامل والساوند سيستم والديكور والكوشة وضيافة للحضور عبارة عن 70 علبة جاتوه و 70 علبة كانز 😎💛\n\n🔥 القاعة موجودة بالدور الثاني من الكافية تسع متوسط 80 فرد ومكيفة بالكامل ✨💛\n\n✍️ الديكوريشن والكوشة بنعرض على حضراتكم اشكال تقدروا تختاروا منها ، وبرده متاح ننفذلكم اى اشكال بأسعار تنافسية .\n\n🎁 متاح تعملوا فوتوسيشن في الحديقه الموجودة بالمكان ( عرض من ORO Cafe لفترة محدوده )💛✨️\n\n• أما فى حالة الطلب من خلالكم واحنا نقدم فقط بيكون في رسوم سيرفس بسيطة بسعر 499 جنيه فقط ." },
+        birthday: { title: "عروض أعياد الميلاد والسبوع", body: "أهلاً بحضرتك يافندم 💛\nعروض أعياد الميلاد والسبوع ، متاح مكانين تختار منهم 🔥 :\n١. المكان بالدور الثاني \n٢. الحديقه الموجودة امام الكافية\n\n✍️ العرض الاول ، شامل المكانين حسب اختيارك 👆 : \nاقل من 5 أفراد يكون سعر الخدمة 100 جنية بالإضافة إلي الطلب من منيو المشروبات البارده او الديزرت.\n\nالعرض الثاني:\nمن 5 الي 10 أفراد يكون سعر خدمه عيد الميلاد ٢٠٠ جنية فقط بالإضافة الي الطلب من منيو المشروبات والديزرت ✨💛\n\n✍️ العرض الثالث ، شامل المكانين حسب اختيارك👆 : \nمن ١٠ أفراد ل ٢٠ فرد تكون سعر خدمة عيد الميلاد ٣٥٠ جنية بالإضافة إلى الطلب من منيو المشروبات والديزرت.\n\n✍️ العرض الرابع ، حجز المكان بالدور الثاني : ويكون سعر الخدمة في هذا العرض فقط بالفرد\n• من 20 فرد فأكثر : يحسب الفرد ب ٥٠ جنية فقط 🔥\nوفي هذا العرض ، لا يشترط الطلب من المنيو ، ولكن عند الطلب من منيو المشروبات البارده او الديزرت ، ORO Cafe عاملك مفاجأة أن يكون ليكوا خصم ١٠% على الفاتورة 🎁 .\n\nالسعر شامل المكان والساوند سيستم فقط لا يشمل الديكور .\n\n✨ خدمات اختيارية :\n• ديكور :\nمتاح نجيب متخصصين يجهزوا الديكور بالشكل اللي تختاروه بالسعر المناسب معاكوا ✨💛\nومتاح تعملوا الديكور بنفسكوا ✨🔥" },
+        students: { title: "باكدج الطلاب والمذاكرة", body: "أهلاً بحضرتك يافندم 💛\n\n🔥 ساعة مذاكرة بـ 20\n🔥 ساعتين بـ 35\n🔥 أو خصم 15% على منيو المشروبات الباردة او الديزرت\n🔥 ولو جاي مع صحابك... الرابع علينا هدية 🤭\n\nفي انتظاركم ✨💛" },
+        times: { title: "مواعيد العمل", body: "• يومياً: من 8 صباحاً إلى 1:30 بعد منتصف الليل.\n• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل.\nفي انتظاركم دائماً في ORO Cafe ✨💛" }
     };
 
     function showContent(id) {
@@ -63,6 +52,11 @@
         document.getElementById('title').innerText = data[id].title;
         document.getElementById('body').innerText = data[id].body;
     }
-
     function back() {
-        document.getElementById('main-wrapper').style.display
+        document.getElementById('main-wrapper').style.display = 'block';
+        document.getElementById('content-area').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
