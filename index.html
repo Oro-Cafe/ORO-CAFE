@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORO Cafe | القائمة والخدمات</title>
+    <title>ORO Cafe</title>
     <style>
-        body { margin: 0; background: #000; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; justify-content: center; }
+        body { margin: 0; background: #000; font-family: sans-serif; display: flex; justify-content: center; }
         .wrapper { position: relative; width: 100%; max-width: 500px; }
         .main-img { width: 100%; display: block; }
         
-        /* الأزرار المخفية فوق الصورة */
+        /* الأزرار مخفية تماماً فوق الصورة */
         .btn-link { position: absolute; cursor: pointer; opacity: 0; z-index: 10; }
         
-        /* تنسيق النافذة المنبثقة */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
-        .modal-content { background: #d4af37; color: #000; padding: 25px; border-radius: 15px; width: 85%; max-height: 80%; overflow-y: auto; text-align: right; }
-        .close-btn { display: block; margin: 20px auto 0; padding: 10px 30px; background: #000; color: #d4af37; border: none; border-radius: 5px; cursor: pointer; }
+        /* تصميم النافذة المنبثقة */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #d4af37; color: #000; padding: 20px; border-radius: 15px; width: 80%; max-height: 80%; overflow-y: auto; text-align: center; }
+        .close-btn { margin-top: 15px; padding: 10px 20px; background: #000; color: #d4af37; border: none; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -23,33 +23,33 @@
 <div class="wrapper">
     <img src="cafe.jpg.png" alt="ORO Cafe" class="main-img">
     
-    <a onclick="show('menu')" class="btn-link" style="top: 22%; left: 10%; width: 35%; height: 12%;"></a>
-    <a onclick="show('engagement')" class="btn-link" style="top: 22%; left: 55%; width: 35%; height: 12%;"></a>
-    <a onclick="show('birthday')" class="btn-link" style="top: 40%; left: 10%; width: 80%; height: 12%;"></a>
-    <a onclick="show('students')" class="btn-link" style="top: 60%; left: 10%; width: 35%; height: 12%;"></a>
-    <a onclick="show('times')" class="btn-link" style="top: 60%; left: 55%; width: 35%; height: 12%;"></a>
+    <a onclick="openModal('menu')" class="btn-link" style="top: 22%; left: 10%; width: 35%; height: 12%;"></a>
+    <a onclick="openModal('engagement')" class="btn-link" style="top: 22%; left: 55%; width: 35%; height: 12%;"></a>
+    <a onclick="openModal('birthday')" class="btn-link" style="top: 38%; left: 10%; width: 80%; height: 12%;"></a>
+    <a onclick="openModal('students')" class="btn-link" style="top: 58%; left: 10%; width: 35%; height: 12%;"></a>
+    <a onclick="openModal('times')" class="btn-link" style="top: 58%; left: 55%; width: 35%; height: 12%;"></a>
 </div>
 
 <div id="modal" class="modal" onclick="closeModal()">
     <div class="modal-content" onclick="event.stopPropagation()">
-        <h2 id="modal-title" style="text-align: center;"></h2>
-        <div id="modal-body"></div>
+        <h2 id="modal-title"></h2>
+        <p id="modal-body" style="white-space: pre-line; line-height: 1.6;"></p>
         <button class="close-btn" onclick="closeModal()">إغلاق</button>
     </div>
 </div>
 
 <script>
-    const content = {
-        menu: "<h3>المنيو والأسعار</h3><p>تصفح منيو ORO Cafe من الرابط التالي:</p><a href='https://oro-cafe.github.io/ORO-Caf-/'>اضغط هنا للمنيو</a>",
-        engagement: "<h3>عروض الخطوبة وكتب الكتاب</h3><ul><li>عرض 3499: قاعة مكيفة + ساوند سيستم.</li><li>عرض 5500: قاعة + ساوند + ديكور + كوشة.</li><li>الفضي 6900: باكدج كامل + 70 كانز.</li><li>الذهبي 7880: باكدج كامل + 70 علبة ضيافة.</li><li>VIP 9280: باكدج كامل + 70 جاتوه و 70 كانز.</li></ul><p>متاح فوتوسيشن في الحديقة!</p>",
-        birthday: "<h3>أعياد الميلاد والسبوع</h3><ul><li>أقل من 5 أفراد: 100ج.</li><li>5-10 أفراد: 200ج.</li><li>10-20 فرد: 350ج.</li><li>20 فرد فأكثر: 50ج للفرد + خصم 10% على المنيو.</li></ul>",
-        students: "<h3>باكدج الطلاب والمذاكرة</h3><p>ساعة بـ 20ج | ساعتين بـ 35ج.</p><p>خصم 15% على المشروبات الباردة والديزرت. ولو جاي مع صحابك... الرابع علينا هدية!</p>",
-        times: "<h3>مواعيدنا</h3><p>يومياً: 8 صباحاً إلى 1:30 بعد منتصف الليل.</p><p>الجمعة: 12 ظهراً إلى 1:30 بعد منتصف الليل.</p>"
+    const data = {
+        menu: { title: "المنيو والأسعار", body: "تفضلوا بزيارة المنيو الخاص بنا:\nhttps://oro-cafe.github.io/ORO-Caf-/" },
+        engagement: { title: "عروض الخطوبة", body: "• العرض الأول (3499ج): قاعة مكيفة + ساوند سيستم.\n• العرض الثاني (5500ج): قاعة + ساوند + ديكور + كوشة.\n• العرض الفضي (6900ج): باكدج كامل + 70 كانز.\n• العرض الذهبي (7880ج): باكدج كامل + 70 علبة ضيافة.\n• عرض الـ VIP (9280ج): باكدج كامل + 70 جاتوه و70 كانز.\n\nمتاح فوتوسيشن في الحديقة لفترة محدودة!" },
+        birthday: { title: "أعياد الميلاد والسبوع", body: "• أقل من 5 أفراد: 100ج.\n• 5 - 10 أفراد: 200ج.\n• 10 - 20 فرد: 350ج.\n• أكثر من 20 فرد: 50ج للفرد (مع خصم 10% على الطلبات).\n\nالسعر شامل المكان والساوند سيستم فقط." },
+        students: { title: "باكدج الطلاب والمذاكرة", body: "• ساعة: 20ج | ساعتين: 35ج.\n• خصم 15% على المشروبات والديزرت.\n• ولو جاي مع صحابك... الرابع علينا هدية!" },
+        times: { title: "مواعيدنا", body: "• يومياً: من 8 صباحاً إلى 1:30 بعد منتصف الليل.\n• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل." }
     };
 
-    function show(id) {
-        document.getElementById('modal-title').innerText = content[id].split('<h3>')[1].split('</h3>')[0];
-        document.getElementById('modal-body').innerHTML = content[id];
+    function openModal(id) {
+        document.getElementById('modal-title').innerText = data[id].title;
+        document.getElementById('modal-body').innerText = data[id].body;
         document.getElementById('modal').style.display = 'flex';
     }
     function closeModal() { document.getElementById('modal').style.display = 'none'; }
