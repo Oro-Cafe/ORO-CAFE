@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORO Cafe</title>
     <style>
-        body { margin: 0; background: #000; display: flex; justify-content: center; font-family: sans-serif; }
+        body { margin: 0; background: #000; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
         .container { position: relative; width: 100%; max-width: 500px; }
-        /* استخدام الصورة الجديدة */
         img { width: 100%; height: auto; display: block; }
-        .btn { position: absolute; background: transparent; border: none; cursor: pointer; z-index: 10; }
+        .btn { position: absolute; background: transparent; border: none; cursor: pointer; }
         
         /* أماكن الأزرار */
         .btn-menu { top: 25%; left: 5%; width: 43%; height: 21%; }
@@ -18,15 +17,14 @@
         .btn-student { top: 69%; left: 5%; width: 43%; height: 14%; }
         .btn-time { top: 69%; right: 5%; width: 43%; height: 14%; }
         
-        #modal { display: none; position: fixed; top: 10%; left: 5%; width: 90%; max-height: 80%; background: #1a1a1a; border: 2px solid #c5a059; border-radius: 20px; color: #fff; padding: 20px; z-index: 100; overflow-y: auto; box-shadow: 0 0 15px rgba(0,0,0,0.5); }
-        .close-btn { color: #c5a059; float: left; cursor: pointer; font-size: 28px; font-weight: bold; }
-        h2 { color: #c5a059; text-align: center; margin-top: 0; }
+        /* مكان عرض المعلومات تحت الصورة */
+        #display-area { width: 100%; max-width: 500px; background: #1a1a1a; color: #fff; padding: 20px; border-top: 2px solid #c5a059; text-align: center; }
+        h2 { color: #c5a059; }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="cafe.jpg.png" alt="ORO Cafe">
-        
         <button class="btn btn-menu" onclick="show('menu')"></button>
         <button class="btn btn-wedding" onclick="show('wedding')"></button>
         <button class="btn btn-birthday" onclick="show('birthday')"></button>
@@ -34,26 +32,23 @@
         <button class="btn btn-time" onclick="show('time')"></button>
     </div>
 
-    <div id="modal">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2 id="modal-title"></h2>
-        <div id="modal-content"></div>
+    <div id="display-area">
+        <h2 id="title">اضغطي على أي زرار لعرض التفاصيل</h2>
+        <div id="content"></div>
     </div>
 
     <script>
         function show(type) {
             const data = {
-                'menu': { title: "المنيو والأسعار", content: "• قهوة تركي: 25 ج<br>• اسبريسو: 35 ج<br>• كابتشينو: 50 ج<br>• لاتيه: 55 ج" },
-                'wedding': { title: "عروض الخطوبة", content: "• باكدج يبدأ من 3499 ج.<br>• شامل القاعة والساوند والديكور." },
-                'birthday': { title: "أعياد الميلاد", content: "• خصومات خاصة للمجموعات تبدأ من 100 ج." },
-                'student': { title: "باكدج الطلاب", content: "• عروض مميزة للطلاب بخصومات تصل لـ 15%." },
+                'menu': { title: "المنيو والأسعار", content: "• قهوة تركي: 25 ج<br>• اسبريسو: 35 ج<br>• كابتشينو: 50 ج" },
+                'wedding': { title: "عروض الخطوبة", content: "• باكدج يبدأ من 3499 ج.<br>• شامل القاعة والديكور." },
+                'birthday': { title: "أعياد الميلاد", content: "• خصومات خاصة للمجموعات." },
+                'student': { title: "باكدج الطلاب", content: "• خصومات تصل لـ 15%." },
                 'time': { title: "مواعيد العمل", content: "• من 8 صباحاً حتى 1:30 بعد منتصف الليل." }
             };
-            document.getElementById('modal-title').innerText = data[type].title;
-            document.getElementById('modal-content').innerHTML = data[type].content;
-            document.getElementById('modal').style.display = 'block';
+            document.getElementById('title').innerText = data[type].title;
+            document.getElementById('content').innerHTML = data[type].content;
         }
-        function closeModal() { document.getElementById('modal').style.display = 'none'; }
     </script>
 </body>
 </html>
