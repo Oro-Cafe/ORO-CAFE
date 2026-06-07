@@ -10,16 +10,14 @@
         img { width: 100%; height: auto; display: block; }
         .btn { position: absolute; background: transparent; border: none; cursor: pointer; }
         
-        /* أماكن الأزرار */
         .btn-menu { top: 25%; left: 5%; width: 43%; height: 21%; }
         .btn-wedding { top: 25%; right: 5%; width: 43%; height: 21%; }
         .btn-birthday { top: 48%; left: 5%; width: 90%; height: 18%; }
         .btn-student { top: 69%; left: 5%; width: 43%; height: 14%; }
         .btn-time { top: 69%; right: 5%; width: 43%; height: 14%; }
         
-        /* مكان عرض المعلومات تحت الصورة */
-        #display-area { width: 100%; max-width: 500px; background: #1a1a1a; color: #fff; padding: 20px; border-top: 2px solid #c5a059; text-align: center; }
-        h2 { color: #c5a059; }
+        #display-area { width: 100%; max-width: 500px; background: #1a1a1a; color: #fff; padding: 20px; border-top: 2px solid #c5a059; text-align: center; line-height: 1.6; box-sizing: border-box; }
+        h2 { color: #c5a059; margin-bottom: 15px; }
     </style>
 </head>
 <body>
@@ -33,21 +31,25 @@
     </div>
 
     <div id="display-area">
-        <h2 id="title">اضغطي على أي زرار لعرض التفاصيل</h2>
-        <div id="content"></div>
+        <h2 id="title">مرحباً بكم في ORO Cafe</h2>
+        <div id="content">اضغطي على أي زرار في الصورة لعرض التفاصيل 💛</div>
     </div>
 
     <script>
         function show(type) {
-            const data = {
-                'menu': { title: "المنيو والأسعار", content: "• قهوة تركي: 25 ج<br>• اسبريسو: 35 ج<br>• كابتشينو: 50 ج" },
-                'wedding': { title: "عروض الخطوبة", content: "• باكدج يبدأ من 3499 ج.<br>• شامل القاعة والديكور." },
-                'birthday': { title: "أعياد الميلاد", content: "• خصومات خاصة للمجموعات." },
-                'student': { title: "باكدج الطلاب", content: "• خصومات تصل لـ 15%." },
-                'time': { title: "مواعيد العمل", content: "• من 8 صباحاً حتى 1:30 بعد منتصف الليل." }
-            };
-            document.getElementById('title').innerText = data[type].title;
-            document.getElementById('content').innerHTML = data[type].content;
+            // هنا ربطنا زرار المنيو باللينك بتاعك
+            if (type === 'menu') {
+                window.open('https://oro-cafe.github.io/ORO-Caf-/', '_blank');
+            } else {
+                const data = {
+                    'wedding': { title: "عروض الخطوبة وكتب الكتاب", content: "<b>العرض الأول:</b> 3499 ج (قاعة + ساوند).<br><b>العرض الثاني:</b> 5500 ج (قاعة + ساوند + ديكور).<br><b>العرض الفضي:</b> 6900 ج.<br><b>العرض الذهبي:</b> 7880 ج.<br><b>عرض VIP:</b> 9280 ج.<br><small>*القاعة تسع 80 فرد ومكيفة بالكامل.</small>" },
+                    'birthday': { title: "أعياد الميلاد والسبوع", content: "<b>أقل من 5 أفراد:</b> 100 ج.<br><b>5-10 أفراد:</b> 200 ج.<br><b>10-20 فرد:</b> 350 ج.<br><b>20 فرد فأكثر:</b> 50 ج للفرد (خصم 10%).<br><small>*السعر شامل المكان والساوند سيستم.</small>" },
+                    'student': { title: "باكدج الطلاب والمذاكرة", content: "• ساعة مذاكرة بـ 20 ج.<br>• ساعتين بـ 35 ج.<br>• خصم 15% على المشروبات والديزرت.<br>• ولو جاي مع صحابك.. الرابع علينا هدية! 🤭" },
+                    'time': { title: "مواعيد العمل", content: "• من 8 صباحاً حتى 1:30 بعد منتصف الليل.<br>• يوم الجمعة: من 12 ظهراً حتى 1:30 بعد منتصف الليل." }
+                };
+                document.getElementById('title').innerText = data[type].title;
+                document.getElementById('content').innerHTML = data[type].content;
+            }
         }
     </script>
 </body>
