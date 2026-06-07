@@ -5,63 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORO Cafe | القائمة والخدمات</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: #f1f1f1; text-align: center; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: auto; background: #2d2d2d; padding: 20px; border-radius: 15px; border: 2px solid #d4af37; }
-        img { width: 100%; border-radius: 10px; margin-bottom: 20px; }
-        h1 { color: #d4af37; }
-        .btn { display: block; width: 90%; margin: 10px auto; padding: 15px; background: #d4af37; color: black; text-decoration: none; font-weight: bold; border-radius: 8px; border: none; cursor: pointer; }
-        .section { margin-top: 30px; padding: 15px; background: #3d3d3d; border-radius: 10px; text-align: right; }
-        .social { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
-        .social a { color: #d4af37; font-size: 24px; text-decoration: none; }
+        body { margin: 0; background: #000; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; justify-content: center; }
+        .wrapper { position: relative; width: 100%; max-width: 500px; }
+        .main-img { width: 100%; display: block; }
+        .btn-link { position: absolute; cursor: pointer; opacity: 0; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #d4af37; color: #000; padding: 25px; border-radius: 15px; width: 85%; max-height: 80%; overflow-y: auto; text-align: right; }
+        .close-btn { display: block; margin: 20px auto 0; padding: 10px 30px; background: #000; color: #d4af37; border: none; border-radius: 5px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <img src="Cafe.jpg.png" alt="ORO Cafe">
-    <h1>مرحباً بكم في ORO Cafe</h1>
+<div class="wrapper">
+    <img src="Cafe.jpg.png" alt="ORO Cafe" class="main-img">
     
-    <a href="https://oro-cafe.github.io/ORO-Caf-/" class="btn">المنيو والأسعار</a>
+    <a onclick="show('menu')" class="btn-link" style="top: 22%; left: 10%; width: 35%; height: 12%;"></a>
+    <a onclick="show('engagement')" class="btn-link" style="top: 22%; left: 55%; width: 35%; height: 12%;"></a>
+    <a onclick="show('birthday')" class="btn-link" style="top: 40%; left: 10%; width: 80%; height: 12%;"></a>
+    <a onclick="show('students')" class="btn-link" style="top: 60%; left: 10%; width: 35%; height: 12%;"></a>
+    <a onclick="show('times')" class="btn-link" style="top: 60%; left: 55%; width: 35%; height: 12%;"></a>
+</div>
 
-    <div class="section">
-        <h2>⏰ مواعيدنا</h2>
-        <p>يومياً: من 8 صباحاً إلى 1:30 بعد منتصف الليل.</p>
-        <p>الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل.</p>
-    </div>
-
-    <div class="section">
-        <h2>💍 عروض الخطوبة وكتب الكتاب</h2>
-        <ul>
-            <li><strong>عرض 3499:</strong> قاعة + ساوند سيستم.</li>
-            <li><strong>عرض 5500:</strong> قاعة + ساوند + ديكور + كوشة.</li>
-            <li><strong>عرض الفضي 6900:</strong> باكدج كامل + 70 علبة كانز.</li>
-            <li><strong>عرض الذهبي 7880:</strong> باكدج كامل + 70 علبة ضيافة (جاتوه).</li>
-            <li><strong>عرض الـ VIP 9280:</strong> باكدج كامل + 70 علبة جاتوه + 70 كانز.</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🎂 أعياد الميلاد والسبوع</h2>
-        <p>متاح الحجز في الدور الثاني أو الحديقة.</p>
-        <ul>
-            <li>أقل من 5 أفراد: 100 ج.</li>
-            <li>5-10 أفراد: 200 ج.</li>
-            <li>10-20 فرد: 350 ج.</li>
-            <li>أكثر من 20 فرد: 50 ج للفرد (مع خصم 10% على الطلبات).</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>📚 باكدج الطلاب والمذاكرة</h2>
-        <p>ساعة: 20ج | ساعتين: 35ج | أو خصم 15% على المشروبات والديزرت. ولو مع صحابك الرابع مجاناً!</p>
-    </div>
-
-    <div class="social">
-        <a href="https://www.facebook.com/share/18qc1vY1iN/">Facebook</a>
-        <a href="https://www.instagram.com/oro_cafee01">Instagram</a>
-        <a href="https://www.tiktok.com/@orocafe01?_r=1&_t=ZS-96zwV87pypp">TikTok</a>
+<div id="modal" class="modal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h2 id="modal-title" style="text-align: center;"></h2>
+        <div id="modal-body"></div>
+        <button class="close-btn" onclick="closeModal()">إغلاق</button>
     </div>
 </div>
+
+<script>
+    const content = {
+        menu: "<h3>المنيو والأسعار</h3><p>تصفح منيو ORO Cafe من الرابط التالي:</p><a href='https://oro-cafe.github.io/ORO-Caf-/'>اضغط هنا للمنيو</a>",
+        engagement: "<h3>عروض الخطوبة وكتب الكتاب</h3><ul><li>عرض 3499: قاعة مكيفة + ساوند سيستم.</li><li>عرض 5500: قاعة + ساوند + ديكور + كوشة.</li><li>الفضي 6900: باكدج كامل + 70 كانز.</li><li>الذهبي 7880: باكدج كامل + 70 علبة ضيافة.</li><li>VIP 9280: باكدج كامل + 70 جاتوه و 70 كانز.</li></ul><p>متاح فوتوسيشن في الحديقة!</p>",
+        birthday: "<h3>أعياد الميلاد والسبوع</h3><ul><li>أقل من 5 أفراد: 100ج.</li><li>5-10 أفراد: 200ج.</li><li>10-20 فرد: 350ج.</li><li>20 فرد فأكثر: 50ج للفرد + خصم 10% على المنيو.</li></ul>",
+        students: "<h3>باكدج الطلاب والمذاكرة</h3><p>ساعة بـ 20ج | ساعتين بـ 35ج.</p><p>خصم 15% على المشروبات الباردة والديزرت. ولو جاي مع صحابك... الرابع علينا هدية!</p>",
+        times: "<h3>مواعيدنا</h3><p>يومياً: 8 صباحاً إلى 1:30 بعد منتصف الليل.</p><p>الجمعة: 12 ظهراً إلى 1:30 بعد منتصف الليل.</p>"
+    };
+
+    function show(id) {
+        document.getElementById('modal-title').innerText = document.querySelector(`[onclick="show('${id}')"]`).parentElement.innerText || id;
+        document.getElementById('modal-body').innerHTML = content[id];
+        document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal() { document.getElementById('modal').style.display = 'none'; }
+</script>
 
 </body>
 </html>
