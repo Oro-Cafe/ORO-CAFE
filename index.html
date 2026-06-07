@@ -7,7 +7,7 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: #111;
   color: white;
   text-align: center;
@@ -27,36 +27,34 @@ img {
   padding: 20px;
   max-width: 500px;
   margin: auto;
+  text-align: left;
 }
 
 .active {
   display: block;
 }
 
-/* زر الإغلاق */
-.close-btn {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: crimson;
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-/* تحسين بسيط */
 h2 {
   color: gold;
+}
+
+.close-btn {
+  margin-top: 15px;
+  padding: 10px;
+  background: crimson;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 الصورة الأساسية -->
-<img src="cafe.jpg.png" usemap="#oromap" alt="ORO CAFE">
+<!-- 🔥 الصورة (الأزرار) -->
+<img src="cafe.jpg.png" usemap="#oromap">
 
-<!-- 🔥 أماكن الضغط داخل الصورة -->
 <map name="oromap">
 
   <!-- About -->
@@ -69,77 +67,91 @@ h2 {
         href="javascript:void(0)"
         onclick="show('menu')">
 
-  <!-- Contact -->
+  <!-- Packages -->
   <area shape="rect" coords="40,360,460,460"
         href="javascript:void(0)"
-        onclick="show('contact')">
+        onclick="show('packages')">
 
-  <!-- Working Hours -->
+  <!-- Hours -->
   <area shape="rect" coords="40,480,460,580"
         href="javascript:void(0)"
         onclick="show('hours')">
 
 </map>
 
-<!-- 🔥 المحتوى -->
-
+<!-- 🔥 ABOUT -->
 <div id="about" class="section">
-  <h2>About ORO CAFE</h2>
-  <p>Welcome to ORO Cafe 💛✨  
-  Cozy place, best coffee & desserts ☕🍰</p>
-  <button class="close-btn" onclick="closeAll()">Close</button>
+<h2>About ORO CAFE</h2>
+<p>
+ORO Cafe هو مكان هادئ ومميز للقهوة والحلويات ☕🍰  
+تصميم عصري + أجواء راقية + خدمة ممتازة 💛
+</p>
+<button class="close-btn" onclick="closeAll()">Close</button>
 </div>
 
+<!-- 🔥 MENU -->
 <div id="menu" class="section">
-  <h2>Menu</h2>
-  <p>
-    Espresso ☕<br>
-    Latte ☕<br>
-    Cappuccino ☕<br>
-    Cold Drinks 🧊<br>
-    Desserts 🍰
-  </p>
-  <button class="close-btn" onclick="closeAll()">Close</button>
+<h2>Menu</h2>
+
+<p><b>Hot Drinks ☕</b><br>
+Espresso - Latte - Cappuccino - Turkish Coffee</p>
+
+<p><b>Cold Drinks 🧊</b><br>
+Iced Latte - Mojito - Smoothies</p>
+
+<p><b>Desserts 🍰</b><br>
+Cheesecake - Brownie - Waffles - Pancakes</p>
+
+<button class="close-btn" onclick="closeAll()">Close</button>
 </div>
 
-<div id="contact" class="section">
-  <h2>Contact Us</h2>
-  <p>
-    📍 Visit us at ORO Cafe<br>
-    📩 Message us on Facebook page<br>
-    📞 Available for reservations
-  </p>
-  <button class="close-btn" onclick="closeAll()">Close</button>
+<!-- 🔥 PACKAGES -->
+<div id="packages" class="section">
+<h2>Packages</h2>
+
+<p><b>🎉 Birthday Package</b><br>
+- Decoration<br>
+- Cake<br>
+- Drinks<br>
+- Reserved area</p>
+
+<p><b>💍 Engagement Package</b><br>
+- Special setup<br>
+- Lighting<br>
+- VIP seating</p>
+
+<p><b>☕ Daily Package</b><br>
+- Coffee + Dessert combo offers</p>
+
+<button class="close-btn" onclick="closeAll()">Close</button>
 </div>
 
+<!-- 🔥 HOURS -->
 <div id="hours" class="section">
-  <h2>Working Hours</h2>
-  <p>
-    Open daily:<br>
-    🕗 8:00 AM<br>
-    🌙 1:30 AM
-  </p>
-  <button class="close-btn" onclick="closeAll()">Close</button>
+<h2>Working Hours</h2>
+
+<p>
+🕗 Open Daily:  
+8:00 AM → 1:30 AM
+</p>
+
+<button class="close-btn" onclick="closeAll()">Close</button>
 </div>
 
-<!-- 🔥 التحكم -->
+<!-- 🔥 SCRIPT -->
 <script>
 function show(id) {
-  let sections = document.querySelectorAll(".section");
-
-  sections.forEach(sec => {
-    sec.classList.remove("active");
-  });
+  document.querySelectorAll(".section")
+    .forEach(s => s.classList.remove("active"));
 
   document.getElementById(id).classList.add("active");
 
-  // ينزل لتحت تلقائي
   document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
 function closeAll() {
   document.querySelectorAll(".section")
-    .forEach(sec => sec.classList.remove("active"));
+    .forEach(s => s.classList.remove("active"));
 }
 </script>
 
