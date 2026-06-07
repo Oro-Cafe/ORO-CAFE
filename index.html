@@ -1,221 +1,127 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ORO Cafe</title>
+<title>ORO CAFE</title>
 
 <style>
-body{
-    margin:0;
-    font-family:Tahoma, Arial, sans-serif;
-    background:#f8f4ee;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
 }
 
-.header{
-    text-align:center;
-    padding:20px;
-    background:#000;
-    color:#d4af37;
+/* الصورة الرئيسية */
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
 }
 
-.cover{
-    width:100%;
-    max-height:450px;
-    object-fit:cover;
+.hero img {
+  width: 100%;
+  display: block;
 }
 
-.container{
-    width:90%;
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+/* أزرار فوق الصورة */
+.btn {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  padding: 12px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  text-align: center;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-.btn{
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    border:none;
-    border-radius:10px;
-    background:#d4af37;
-    color:#000;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
+.btn:hover {
+  background: gold;
+  color: black;
 }
 
-.content{
-    display:none;
-    background:white;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:15px;
-    line-height:1.9;
+.btn.about { top: 20%; }
+.btn.menu { top: 35%; }
+.btn.contact { top: 50%; }
+.btn.hours { top: 65%; }
+
+/* الأقسام */
+.section {
+  display: none;
+  padding: 20px;
+  text-align: center;
 }
 
-.social{
-    text-align:center;
-    margin-top:30px;
-    margin-bottom:30px;
+.active {
+  display: block;
 }
 
-.social a{
-    text-decoration:none;
-    margin:10px;
-    color:#d4af37;
-    font-size:20px;
-    font-weight:bold;
+.close {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: crimson;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-<h1>ORO Cafe</h1>
-</div>
+<!-- الصورة + الأزرار -->
+<div class="hero">
 
-<img src="cafe.jpg.png" class="cover">
+  <img src="cafe.jpg.png" alt="ORO CAFE">
 
-<div class="container">
-
-<button class="btn" onclick="window.open('https://oro-cafe.github.io/ORO-Caf-/','_blank')">
-📖 المنيو
-</button>
-
-<button class="btn" onclick="toggleContent('hours')">
-🕒 مواعيدنا
-</button>
-
-<div id="hours" class="content">
-✨ مواعيدنا ✨<br><br>
-
-اهلاً بحضرتك يافندم 💛<br>
-مواعيد ORO Cafe 💛<br>
-من الساعة 8 صباحًا إلى الساعة 1:30 بعد منتصف الليل 📍<br>
-يوم الجمعة من الساعة 12 ظهرًا إلى 1:30 بعد منتصف الليل 📍<br>
-تنورونا في أي وقت ✨
-</div>
-
-<button class="btn" onclick="toggleContent('engagement')">
-💍 الخطوبة وكتب الكتاب
-</button>
-
-<div id="engagement" class="content">
-
-💛 عروض الخطوبة وكتب الكتاب 💛<br><br>
-
-<b>العرض الأول:</b><br>
-3499 جنيه<br>
-يشمل قاعة مكيفة بالكامل والساوند سيستم بدون ديكور.<br><br>
-
-<b>العرض الثاني:</b><br>
-5500 جنيه<br>
-يشمل القاعة المكيفة والساوند سيستم والديكور والكوشة.<br><br>
-
-<b>العرض الفضي:</b><br>
-6900 جنيه<br>
-يشمل القاعة والديكور والكوشة و70 علبة كانز.<br><br>
-
-<b>العرض الذهبي:</b><br>
-7880 جنيه<br>
-يشمل القاعة والديكور والكوشة و70 علبة جاتوه.<br><br>
-
-<b>VIP:</b><br>
-9280 جنيه<br>
-يشمل القاعة والديكور والكوشة و70 علبة جاتوه و70 علبة كانز.<br><br>
-
-🔥 القاعة بالدور الثاني وتسع متوسط 80 فرد ومكيفة بالكامل.<br><br>
-
-🎁 متاح فوتوسيشن بالحديقة مجانًا لفترة محدودة.<br><br>
-
-• في حالة الحجز من خلالكم وتقديم المكان فقط توجد رسوم سيرفس 499 جنيه.
-</div>
-
-<button class="btn" onclick="toggleContent('birthday')">
-🎂 أعياد الميلاد والسبوع
-</button>
-
-<div id="birthday" class="content">
-
-💛 عروض أعياد الميلاد والسبوع 💛<br><br>
-
-متاح الاختيار بين:<br>
-1- القاعة بالدور الثاني.<br>
-2- الحديقة أمام الكافيه.<br><br>
-
-<b>أقل من 5 أفراد:</b><br>
-100 جنيه خدمة + الطلب من المنيو.<br><br>
-
-<b>من 5 إلى 10 أفراد:</b><br>
-200 جنيه خدمة + الطلب من المنيو.<br><br>
-
-<b>من 10 إلى 20 فرد:</b><br>
-350 جنيه خدمة + الطلب من المنيو.<br><br>
-
-<b>20 فرد فأكثر:</b><br>
-50 جنيه للفرد.<br><br>
-
-🔥 في هذا العرض لا يشترط الطلب من المنيو.<br>
-🎁 وعند الطلب تحصل على خصم 10٪ على الفاتورة.<br><br>
-
-✨ الديكور اختياري ويمكن تنفيذه بالشكل الذي تختارونه.
-</div>
-
-<button class="btn" onclick="toggleContent('students')">
-📚 الطلاب والمذاكرة
-</button>
-
-<div id="students" class="content">
-
-💛 باكدج الطلاب والمذاكرة 💛<br><br>
-
-🔥 ساعة مذاكرة بـ 20 جنيه.<br><br>
-
-🔥 ساعتان بـ 35 جنيه.<br><br>
-
-🔥 خصم 15٪ على المشروبات الباردة والديزرت.<br><br>
-
-🔥 لو جاي مع أصحابك... الرابع هدية 🎁
-</div>
-
-<div class="social">
-
-<a href="https://www.facebook.com/share/18qc1vY1iN/" target="_blank">
-Facebook
-</a>
-
-<a href="https://www.instagram.com/oro_cafee01" target="_blank">
-Instagram
-</a>
-
-<a href="https://www.tiktok.com/@orocafe01" target="_blank">
-TikTok
-</a>
+  <div class="btn about" onclick="show('about')">About Us</div>
+  <div class="btn menu" onclick="show('menu')">Menu</div>
+  <div class="btn contact" onclick="show('contact')">Contact</div>
+  <div class="btn hours" onclick="show('hours')">Working Hours</div>
 
 </div>
 
+<!-- الأقسام -->
+
+<div id="about" class="section">
+  <h2>About ORO CAFE</h2>
+  <p>Welcome to ORO Cafe - cozy place, best coffee & desserts ☕🍰</p>
+  <button class="close" onclick="closeAll()">Close</button>
+</div>
+
+<div id="menu" class="section">
+  <h2>Our Menu</h2>
+  <p>Coffee - Espresso - Latte - Desserts - Cold Drinks</p>
+  <button class="close" onclick="closeAll()">Close</button>
+</div>
+
+<div id="contact" class="section">
+  <h2>Contact Us</h2>
+  <p>Message us on Facebook page or visit us 📍</p>
+  <button class="close" onclick="closeAll()">Close</button>
+</div>
+
+<div id="hours" class="section">
+  <h2>Working Hours</h2>
+  <p>From 8 AM to 1:30 AM</p>
+  <button class="close" onclick="closeAll()">Close</button>
 </div>
 
 <script>
-function toggleContent(id){
+function show(id) {
+  let sections = document.querySelectorAll(".section");
+  sections.forEach(sec => sec.classList.remove("active"));
 
-let sections=document.querySelectorAll('.content');
-
-sections.forEach(section=>{
-if(section.id!==id){
-section.style.display='none';
+  document.getElementById(id).classList.add("active");
 }
-});
 
-let content=document.getElementById(id);
-
-if(content.style.display==='block'){
-content.style.display='none';
-}else{
-content.style.display='block';
-}
+function closeAll() {
+  let sections = document.querySelectorAll(".section");
+  sections.forEach(sec => sec.classList.remove("active"));
 }
 </script>
 
