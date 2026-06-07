@@ -1,56 +1,115 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORO Cafe</title>
-    <style>
-        body { margin: 0; background: #000; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
-        .container { position: relative; width: 100%; max-width: 500px; }
-        img { width: 100%; height: auto; display: block; }
-        .btn { position: absolute; background: transparent; border: none; cursor: pointer; }
-        
-        .btn-menu { top: 25%; left: 5%; width: 43%; height: 21%; }
-        .btn-wedding { top: 25%; right: 5%; width: 43%; height: 21%; }
-        .btn-birthday { top: 48%; left: 5%; width: 90%; height: 18%; }
-        .btn-student { top: 69%; left: 5%; width: 43%; height: 14%; }
-        .btn-time { top: 69%; right: 5%; width: 43%; height: 14%; }
-        
-        #display-area { width: 100%; max-width: 500px; background: #1a1a1a; color: #fff; padding: 20px; border-top: 2px solid #c5a059; text-align: center; line-height: 1.6; box-sizing: border-box; }
-        h2 { color: #c5a059; margin-bottom: 15px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORO Cafe</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Tahoma, Arial, sans-serif;
+    background:#f8f4ee;
+}
+
+.header{
+    text-align:center;
+    padding:20px;
+    background:#000;
+    color:#d4af37;
+}
+
+.cover{
+    width:100%;
+    max-height:450px;
+    object-fit:cover;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.btn{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:#d4af37;
+    color:#000;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.content{
+    display:none;
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+    line-height:1.9;
+}
+
+.social{
+    text-align:center;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.social a{
+    text-decoration:none;
+    margin:10px;
+    color:#d4af37;
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <img src="cafe.jpg.png" alt="ORO Cafe">
-        <button class="btn btn-menu" onclick="show('menu')"></button>
-        <button class="btn btn-wedding" onclick="show('wedding')"></button>
-        <button class="btn btn-birthday" onclick="show('birthday')"></button>
-        <button class="btn btn-student" onclick="show('student')"></button>
-        <button class="btn btn-time" onclick="show('time')"></button>
-    </div>
 
-    <div id="display-area">
-        <h2 id="title">مرحباً بكم في ORO Cafe</h2>
-        <div id="content">اضغطي على أي زرار في الصورة لعرض التفاصيل 💛</div>
-    </div>
+<div class="header">
+<h1>ORO Cafe</h1>
+</div>
 
-    <script>
-        function show(type) {
-            // هنا ربطنا زرار المنيو باللينك بتاعك
-            if (type === 'menu') {
-                window.open('https://oro-cafe.github.io/ORO-Caf-/', '_blank');
-            } else {
-                const data = {
-                    'wedding': { title: "عروض الخطوبة وكتب الكتاب", content: "<b>العرض الأول:</b> 3499 ج (قاعة + ساوند).<br><b>العرض الثاني:</b> 5500 ج (قاعة + ساوند + ديكور).<br><b>العرض الفضي:</b> 6900 ج.<br><b>العرض الذهبي:</b> 7880 ج.<br><b>عرض VIP:</b> 9280 ج.<br><small>*القاعة تسع 80 فرد ومكيفة بالكامل.</small>" },
-                    'birthday': { title: "أعياد الميلاد والسبوع", content: "<b>أقل من 5 أفراد:</b> 100 ج.<br><b>5-10 أفراد:</b> 200 ج.<br><b>10-20 فرد:</b> 350 ج.<br><b>20 فرد فأكثر:</b> 50 ج للفرد (خصم 10%).<br><small>*السعر شامل المكان والساوند سيستم.</small>" },
-                    'student': { title: "باكدج الطلاب والمذاكرة", content: "• ساعة مذاكرة بـ 20 ج.<br>• ساعتين بـ 35 ج.<br>• خصم 15% على المشروبات والديزرت.<br>• ولو جاي مع صحابك.. الرابع علينا هدية! 🤭" },
-                    'time': { title: "مواعيد العمل", content: "• من 8 صباحاً حتى 1:30 بعد منتصف الليل.<br>• يوم الجمعة: من 12 ظهراً حتى 1:30 بعد منتصف الليل." }
-                };
-                document.getElementById('title').innerText = data[type].title;
-                document.getElementById('content').innerHTML = data[type].content;
-            }
-        }
-    </script>
-</body>
-</html>
+<img src="cafe.jpg.png" class="cover">
+
+<div class="container">
+
+<button class="btn" onclick="window.open('https://oro-cafe.github.io/ORO-Caf-/','_blank')">
+📖 المنيو
+</button>
+
+<button class="btn" onclick="toggleContent('hours')">
+🕒 مواعيدنا
+</button>
+
+<div id="hours" class="content">
+✨ مواعيدنا ✨<br><br>
+
+اهلاً بحضرتك يافندم 💛<br>
+مواعيد ORO Cafe 💛<br>
+من الساعة 8 صباحًا إلى الساعة 1:30 بعد منتصف الليل 📍<br>
+يوم الجمعة من الساعة 12 ظهرًا إلى 1:30 بعد منتصف الليل 📍<br>
+تنورونا في أي وقت ✨
+</div>
+
+<button class="btn" onclick="toggleContent('engagement')">
+💍 الخطوبة وكتب الكتاب
+</button>
+
+<div id="engagement" class="content">
+
+💛 عروض الخطوبة وكتب الكتاب 💛<br><br>
+
+<b>العرض الأول:</b><br>
+3499 جنيه<br>
+يشمل قاعة مكيفة بالكامل والساوند سيستم بدون ديكور.<br><br>
+
+<b>العرض الثاني:</b><br>
+5500 جنيه<br>
+يشمل الق
