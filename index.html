@@ -1,195 +1,119 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ORO Cafe</title>
-
 <style>
 body{
-    margin:0;
-    font-family:Tahoma,Arial,sans-serif;
-    background:#f8f4ee;
+  font-family: Arial;
+  direction: rtl;
+  background: #fff;
 }
 
-.header{
-    text-align:center;
-    padding:20px;
-    background:#000;
-    color:#d4af37;
+.offers-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #c49a6c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: right;
+  font-weight: bold;
 }
 
-.cover{
-    width:100%;
-    max-height:450px;
-    object-fit:cover;
+.offers-box {
+  display: none;
+  padding: 15px;
+  margin-top: 5px;
+  background: #fff3e6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  line-height: 1.8;
 }
 
-.container{
-    width:90%;
-    max-width:900px;
-    margin:auto;
-    padding:20px;
-}
-
-.btn{
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    border:none;
-    border-radius:10px;
-    background:#d4af37;
-    color:#000;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.content{
-    display:none;
-    background:white;
-    padding:15px;
-    border-radius:10px;
-    margin-bottom:15px;
-    line-height:1.9;
-}
-
-.social{
-    text-align:center;
-    margin-top:30px;
-}
-
-.social a{
-    text-decoration:none;
-    margin:10px;
-    color:#d4af37;
-    font-size:20px;
-    font-weight:bold;
+/* شكل العناوين داخل الصناديق */
+.offers-box h2{
+  color:#a87c52;
+  margin-top:10px;
 }
 </style>
-</head>
 
-<body>
+<!-- مواعيد -->
+<button class="offers-btn" onclick="toggleSection('mawaeed')">✨ مواعيدنا</button>
+<div id="mawaeed" class="offers-box">
 
-<div class="header">
-<h1>ORO Cafe</h1>
-</div>
-
-<img src="cafe.jpg.png" class="cover">
-
-<div class="container">
-
-<button class="btn" onclick="window.open('https://oro-cafe.github.io/ORO-Caf-/','_blank')">
-📖 المنيو
-</button>
-
-<button class="btn" onclick="toggleContent('hours')">
-🕒 مواعيدنا
-</button>
-
-<div id="hours" class="content">
-اهلاً بحضرتك يافندم 💛<br>
-من الساعة 8 صباحًا إلى 1:30 بعد منتصف الليل.<br>
-يوم الجمعة من الساعة 12 ظهرًا إلى 1:30 بعد منتصف الليل.<br>
-تنورونا في أي وقت ✨
-</div>
-
-<button class="btn" onclick="toggleContent('engagement')">
-💍 الخطوبة وكتب الكتاب
-</button>
-
-<div id="engagement" class="content">
-
-<b>العرض الأول:</b><br>
-3499 جنيه<br><br>
-
-<b>العرض الثاني:</b><br>
-5500 جنيه<br><br>
-
-<b>العرض الفضي:</b><br>
-6900 جنيه<br><br>
-
-<b>العرض الذهبي:</b><br>
-7880 جنيه<br><br>
-
-<b>VIP:</b><br>
-9280 جنيه<br><br>
-
-قاعة مكيفة بالكامل بالدور الثاني تسع متوسط 80 فرد.<br>
-متاح فوتوسيشن في الحديقة 💛
-</div>
-
-<button class="btn" onclick="toggleContent('birthday')">
-🎂 أعياد الميلاد والسبوع
-</button>
-
-<div id="birthday" class="content">
-
-أقل من 5 أفراد: 100 جنيه خدمة.<br><br>
-
-من 5 إلى 10 أفراد: 200 جنيه خدمة.<br><br>
-
-من 10 إلى 20 فرد: 350 جنيه خدمة.<br><br>
-
-20 فرد فأكثر: 50 جنيه للفرد.<br><br>
-
-خصم 10% عند الطلب من المنيو في العرض الرابع.<br>
-الديكور متاح اختياري.
-</div>
-
-<button class="btn" onclick="toggleContent('students')">
-📚 الطلاب والمذاكرة
-</button>
-
-<div id="students" class="content">
-
-ساعة مذاكرة: 20 جنيه.<br><br>
-
-ساعتان: 35 جنيه.<br><br>
-
-أو خصم 15% على المشروبات الباردة والديزرت.<br><br>
-
-الرابع هدية لو جايين مجموعة 💛
-</div>
-
-<div class="social">
-
-<a href="https://www.facebook.com/share/18qc1vY1iN/" target="_blank">
-Facebook
-</a>
-
-<a href="https://www.instagram.com/oro_cafee01" target="_blank">
-Instagram
-</a>
-
-<a href="https://www.tiktok.com/@orocafe01" target="_blank">
-TikTok
-</a>
+  <h2>✨ مواعيد ORO Cafe</h2>
+  <p>من 8 صباحًا إلى 1:30 بعد منتصف الليل 💛</p>
+  <p>يوم الجمعة من 12 ظهرًا إلى 1:30 بعد منتصف الليل 📍</p>
 
 </div>
+
+<!-- الخطوبة -->
+<button class="offers-btn" onclick="toggleSection('khitoba')">💍 الخطوبة وكتب الكتاب</button>
+<div id="khitoba" class="offers-box">
+
+  <h2>💛 عروض الخطوبة وكتب الكتاب</h2>
+
+  <p>🔥 3499 - قاعة + ساوند (بدون ديكور)</p>
+  <p>🔥 5500 - قاعة + ديكور + كوشة</p>
+  <p>🔥 6900 - + 70 كانز ضيافة</p>
+  <p>🔥 7880 - + جاتوه ضيافة</p>
+  <p>🔥 9280 VIP - شامل كل حاجة</p>
+
+  <p>📍 القاعة بالدور الثاني تسع 80 فرد</p>
+  <p>🎁 فوتوسيشن في الحديقة متاح</p>
+  <p>⚠️ رسوم سيرفس 499 في حالة الخدمة من الكافيه</p>
+
+</div>
+
+<!-- أعياد الميلاد -->
+<button class="offers-btn" onclick="toggleSection('birthday')">🎉 أعياد الميلاد والسبوع</button>
+<div id="birthday" class="offers-box">
+
+  <h2>🎉 حفلات أعياد الميلاد</h2>
+
+  <p>📍 الدور الثاني أو الحديقة</p>
+
+  <p>👶 أقل من 5 أفراد: 100 جنيه</p>
+  <p>👥 5 - 10 أفراد: 200 جنيه</p>
+  <p>👥 10 - 20 فرد: 350 جنيه</p>
+  <p>🔥 20 فرد فأكثر: 50 جنيه للفرد</p>
+
+  <p>🎁 خصم 10% على المشروبات والديزرت</p>
+
+</div>
+
+<!-- المذاكرة -->
+<button class="offers-btn" onclick="toggleSection('study')">📚 المذاكرة والطلاب</button>
+<div id="study" class="offers-box">
+
+  <h2>📚 باكدج الطلاب</h2>
+
+  <p>🔥 ساعة بـ 20 جنيه</p>
+  <p>🔥 ساعتين بـ 35 جنيه</p>
+  <p>🔥 خصم 15% على المشروبات الباردة والديزرت</p>
+  <p>🤭 الرابع مجانًا مع صحابك</p>
+
+</div>
+
+<!-- المنيو -->
+<button class="offers-btn" onclick="toggleSection('menu')">🍽️ المنيو</button>
+<div id="menu" class="offers-box">
+
+  <h2>🍽️ منيو ORO Cafe</h2>
+
+  <p>☕ قهوة تركي - 25 جنيه</p>
+  <p>☕ أمريكانو - 35 جنيه</p>
+  <p>☕ كابتشينو - 45 جنيه</p>
+
+  <p>🥤 عصائر - من 30 إلى 60 جنيه</p>
+  <p>🍰 حلويات - من 40 إلى 80 جنيه</p>
+
+  <p>🧊 مشروبات باردة - حسب الطلب</p>
 
 </div>
 
 <script>
-function toggleContent(id){
-
-let sections=document.querySelectorAll('.content');
-
-sections.forEach(section=>{
-if(section.id!==id){
-section.style.display='none';
-}
-});
-
-let content=document.getElementById(id);
-
-if(content.style.display==='block'){
-content.style.display='none';
-}else{
-content.style.display='block';
-}
+function toggleSection(id){
+  var box = document.getElementById(id);
+  box.style.display = (box.style.display === "block") ? "none" : "block";
 }
 </script>
-
-</body>
-</html>
