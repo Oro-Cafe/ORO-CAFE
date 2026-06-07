@@ -1,159 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>ORO CAFE</title>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #111;
-  color: white;
-  text-align: center;
-}
-
-/* الصورة */
-img {
-  width: 100%;
-  max-width: 500px;
-  display: block;
-  margin: auto;
-}
-
-/* الأقسام */
-.section {
-  display: none;
-  padding: 20px;
-  max-width: 500px;
-  margin: auto;
-  text-align: left;
-}
-
-.active {
-  display: block;
-}
-
-h2 {
-  color: gold;
-}
-
-.close-btn {
-  margin-top: 15px;
-  padding: 10px;
-  background: crimson;
-  color: white;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORO Cafe | القائمة والخدمات</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: #f1f1f1; text-align: center; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: #2d2d2d; padding: 20px; border-radius: 15px; border: 2px solid #d4af37; }
+        img { width: 100%; border-radius: 10px; margin-bottom: 20px; }
+        h1 { color: #d4af37; }
+        .btn { display: block; width: 90%; margin: 10px auto; padding: 15px; background: #d4af37; color: black; text-decoration: none; font-weight: bold; border-radius: 8px; border: none; cursor: pointer; }
+        .section { margin-top: 30px; padding: 15px; background: #3d3d3d; border-radius: 10px; text-align: right; }
+        .social { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
+        .social a { color: #d4af37; font-size: 24px; text-decoration: none; }
+    </style>
 </head>
-
 <body>
 
-<!-- 🔥 الصورة (الأزرار) -->
-<img src="cafe.jpg.png" usemap="#oromap">
+<div class="container">
+    <img src="Cafe.jpg.png" alt="ORO Cafe">
+    <h1>مرحباً بكم في ORO Cafe</h1>
+    
+    <a href="https://oro-cafe.github.io/ORO-Caf-/" class="btn">المنيو والأسعار</a>
 
-<map name="oromap">
+    <div class="section">
+        <h2>⏰ مواعيدنا</h2>
+        <p>يومياً: من 8 صباحاً إلى 1:30 بعد منتصف الليل.</p>
+        <p>الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل.</p>
+    </div>
 
-  <!-- About -->
-  <area shape="rect" coords="40,120,460,220"
-        href="javascript:void(0)"
-        onclick="show('about')">
+    <div class="section">
+        <h2>💍 عروض الخطوبة وكتب الكتاب</h2>
+        <ul>
+            <li><strong>عرض 3499:</strong> قاعة + ساوند سيستم.</li>
+            <li><strong>عرض 5500:</strong> قاعة + ساوند + ديكور + كوشة.</li>
+            <li><strong>عرض الفضي 6900:</strong> باكدج كامل + 70 علبة كانز.</li>
+            <li><strong>عرض الذهبي 7880:</strong> باكدج كامل + 70 علبة ضيافة (جاتوه).</li>
+            <li><strong>عرض الـ VIP 9280:</strong> باكدج كامل + 70 علبة جاتوه + 70 كانز.</li>
+        </ul>
+    </div>
 
-  <!-- Menu -->
-  <area shape="rect" coords="40,240,460,340"
-        href="javascript:void(0)"
-        onclick="show('menu')">
+    <div class="section">
+        <h2>🎂 أعياد الميلاد والسبوع</h2>
+        <p>متاح الحجز في الدور الثاني أو الحديقة.</p>
+        <ul>
+            <li>أقل من 5 أفراد: 100 ج.</li>
+            <li>5-10 أفراد: 200 ج.</li>
+            <li>10-20 فرد: 350 ج.</li>
+            <li>أكثر من 20 فرد: 50 ج للفرد (مع خصم 10% على الطلبات).</li>
+        </ul>
+    </div>
 
-  <!-- Packages -->
-  <area shape="rect" coords="40,360,460,460"
-        href="javascript:void(0)"
-        onclick="show('packages')">
+    <div class="section">
+        <h2>📚 باكدج الطلاب والمذاكرة</h2>
+        <p>ساعة: 20ج | ساعتين: 35ج | أو خصم 15% على المشروبات والديزرت. ولو مع صحابك الرابع مجاناً!</p>
+    </div>
 
-  <!-- Hours -->
-  <area shape="rect" coords="40,480,460,580"
-        href="javascript:void(0)"
-        onclick="show('hours')">
-
-</map>
-
-<!-- 🔥 ABOUT -->
-<div id="about" class="section">
-<h2>About ORO CAFE</h2>
-<p>
-ORO Cafe هو مكان هادئ ومميز للقهوة والحلويات ☕🍰  
-تصميم عصري + أجواء راقية + خدمة ممتازة 💛
-</p>
-<button class="close-btn" onclick="closeAll()">Close</button>
+    <div class="social">
+        <a href="https://www.facebook.com/share/18qc1vY1iN/">Facebook</a>
+        <a href="https://www.instagram.com/oro_cafee01">Instagram</a>
+        <a href="https://www.tiktok.com/@orocafe01?_r=1&_t=ZS-96zwV87pypp">TikTok</a>
+    </div>
 </div>
-
-<!-- 🔥 MENU -->
-<div id="menu" class="section">
-<h2>Menu</h2>
-
-<p><b>Hot Drinks ☕</b><br>
-Espresso - Latte - Cappuccino - Turkish Coffee</p>
-
-<p><b>Cold Drinks 🧊</b><br>
-Iced Latte - Mojito - Smoothies</p>
-
-<p><b>Desserts 🍰</b><br>
-Cheesecake - Brownie - Waffles - Pancakes</p>
-
-<button class="close-btn" onclick="closeAll()">Close</button>
-</div>
-
-<!-- 🔥 PACKAGES -->
-<div id="packages" class="section">
-<h2>Packages</h2>
-
-<p><b>🎉 Birthday Package</b><br>
-- Decoration<br>
-- Cake<br>
-- Drinks<br>
-- Reserved area</p>
-
-<p><b>💍 Engagement Package</b><br>
-- Special setup<br>
-- Lighting<br>
-- VIP seating</p>
-
-<p><b>☕ Daily Package</b><br>
-- Coffee + Dessert combo offers</p>
-
-<button class="close-btn" onclick="closeAll()">Close</button>
-</div>
-
-<!-- 🔥 HOURS -->
-<div id="hours" class="section">
-<h2>Working Hours</h2>
-
-<p>
-🕗 Open Daily:  
-8:00 AM → 1:30 AM
-</p>
-
-<button class="close-btn" onclick="closeAll()">Close</button>
-</div>
-
-<!-- 🔥 SCRIPT -->
-<script>
-function show(id) {
-  document.querySelectorAll(".section")
-    .forEach(s => s.classList.remove("active"));
-
-  document.getElementById(id).classList.add("active");
-
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
-
-function closeAll() {
-  document.querySelectorAll(".section")
-    .forEach(s => s.classList.remove("active"));
-}
-</script>
 
 </body>
 </html>
