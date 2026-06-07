@@ -8,11 +8,8 @@
         body { margin: 0; background: #000; text-align: center; font-family: sans-serif; }
         .wrapper { position: relative; width: 100%; max-width: 500px; margin: auto; }
         .main-img { width: 100%; display: block; }
-        
-        /* الأزرار الشفافة فوق الأيقونات */
         .click-area { position: absolute; cursor: pointer; z-index: 100; }
         
-        /* صفحة المحتوى */
         #content-area { display: none; background: #d4af37; min-height: 100vh; padding: 25px; color: #000; }
         .back-btn { margin-top: 30px; padding: 15px 40px; background: #000; color: #d4af37; border: none; border-radius: 10px; cursor: pointer; font-size: 18px; }
     </style>
@@ -21,9 +18,7 @@
 
 <div id="main-wrapper" class="wrapper">
     <img src="cafe.jpg.png" alt="ORO Cafe" class="main-img">
-    
     <a href="https://oro-cafe.github.io/ORO-Caf-/" target="_blank" class="click-area" style="top: 22%; left: 10%; width: 35%; height: 12%;"></a>
-    
     <div onclick="showContent('engagement')" class="click-area" style="top: 22%; left: 55%; width: 35%; height: 12%;"></div>
     <div onclick="showContent('birthday')" class="click-area" style="top: 40%; left: 10%; width: 80%; height: 12%;"></div>
     <div onclick="showContent('students')" class="click-area" style="top: 60%; left: 10%; width: 35%; height: 12%;"></div>
@@ -32,12 +27,11 @@
     <a href="https://www.facebook.com/share/18qc1vY1iN/" target="_blank" class="click-area" style="top: 89%; left: 24%; width: 9%; height: 7%;"></a>
     <a href="https://www.instagram.com/oro_cafee01" target="_blank" class="click-area" style="top: 89%; left: 38%; width: 9%; height: 7%;"></a>
     <a href="https://www.tiktok.com/@orocafe01" target="_blank" class="click-area" style="top: 89%; left: 52%; width: 9%; height: 7%;"></a>
-    <a href="https://wa.me/201234567890" target="_blank" class="click-area" style="top: 89%; left: 66%; width: 9%; height: 7%;"></a>
 </div>
 
 <div id="content-area">
     <h2 id="title"></h2>
-    <p id="body" style="font-size: 20px; line-height: 2; white-space: pre-line;"></p>
+    <p id="body" style="font-size: 18px; line-height: 1.8; white-space: pre-line; text-align: right;"></p>
     <button class="back-btn" onclick="back()">رجوع للرئيسية</button>
 </div>
 
@@ -45,19 +39,19 @@
     const data = {
         engagement: { 
             title: "عروض الخطوبة وكتب الكتاب", 
-            body: "• العرض (3499ج): قاعة مكيفة + ساوند سيستم.\n• العرض (5500ج): قاعة + ساوند + ديكور + كوشة.\n• العرض الفضي (6900ج): باكدج كامل + 70 كانز.\n• العرض الذهبي (7880ج): باكدج كامل + 70 علبة ضيافة.\n• العرض VIP (9280ج): باكدج كامل + 70 جاتوه و 70 كانز.\n\nملاحظة: متاح عمل فوتوسيشن في الحديقة!" 
+            body: "عروض لفترة محدودة 💛\n\n• العرض الأول (3499ج): قاعة مكيفة + ساوند سيستم (بدون ديكور).\n• العرض الثاني (5500ج): قاعة مكيفة + ساوند + ديكور وكوشة.\n• العرض الفضي (6900ج): قاعة + ساوند + ديكور + كوشة + 70 كانز.\n• العرض الذهبي (7880ج): قاعة + ساوند + ديكور + كوشة + 70 علبة ضيافة (جاتوه، باتيه، شيكولاتة).\n• عرض VIP (9280ج): قاعة + ساوند + ديكور + كوشة + 70 علبة جاتوه و 70 كانز.\n\n✨ معلومات هامة:\n- القاعة بالدور الثاني (مكيفة بالكامل)، تسع متوسط 80 فرد.\n- متاح فوتوسيشن في الحديقة مجاناً لفترة محدودة.\n- رسوم سيرفس بسيطة (499ج) في حالة الطلب من الخارج." 
         },
         birthday: { 
             title: "عروض أعياد الميلاد والسبوع", 
-            body: "مفاجأة: خصم 10% على الفاتورة للمجموعات الكبيرة!\n\n• أقل من 5 أفراد: 100ج.\n• 5 إلى 10 أفراد: 200ج.\n• 10 إلى 20 فرد: 350ج.\n• 20 فرد فأكثر: 50ج للفرد + خصم 10% على المنيو." 
+            body: "أهلاً بحضرتك يافندم 💛\nمتاح مكانين تختار منهم: (الدور الثاني أو الحديقة).\n\n✍️ العروض:\n• أقل من 5 أفراد: 100ج + طلب من المنيو.\n• من 5 لـ 10 أفراد: 200ج + طلب من المنيو.\n• من 10 لـ 20 فرد: 350ج + طلب من المنيو.\n• 20 فرد فأكثر: 50ج للفرد (بدون شرط الطلب) + خصم 10% لو طلبتوا.\n\nالسعر شامل المكان والساوند سيستم فقط.\n✨ خدمات اختيارية:\n• متاح تجهيز ديكور خارجي أو التجهيز بنفسك." 
         },
         students: { 
             title: "باكدج الطلاب والمذاكرة", 
-            body: "أهلاً بحضرتك يافندم!\n\n• ساعة مذاكرة بـ 20ج.\n• ساعتين بـ 35ج.\n• أو خصم 15% على المنيو (المشروبات الباردة والديزرت).\n\nولو جاي مع صحابك... الرابع علينا هدية!\nفي انتظاركم ✨💛" 
+            body: "أهلاً بحضرتك يافندم 💛\n\n• ساعة مذاكرة بـ 20ج.\n• ساعتين بـ 35ج.\n• أو خصم 15% على منيو المشروبات الباردة والديزرت.\n\nولو جاي مع صحابك... الرابع علينا هدية! 🎁\nفي انتظاركم ✨💛" 
         },
         times: { 
             title: "مواعيد العمل", 
-            body: "• العمل يومياً: من 8 صباحاً إلى 1:30 بعد منتصف الليل.\n• يوم الجمعة: يبدأ العمل من الساعة 12 ظهراً إلى 1:30 بعد منتصف الليل." 
+            body: "• يومياً: من 8 صباحاً إلى 1:30 بعد منتصف الليل.\n• الجمعة: من 12 ظهراً إلى 1:30 بعد منتصف الليل." 
         }
     };
 
