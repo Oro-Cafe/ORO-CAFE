@@ -8,7 +8,7 @@
 <style>
 body{
     margin:0;
-    font-family:Tahoma, Arial, sans-serif;
+    font-family:Tahoma,Arial,sans-serif;
     background:#f8f4ee;
 }
 
@@ -57,7 +57,6 @@ body{
 .social{
     text-align:center;
     margin-top:30px;
-    margin-bottom:30px;
 }
 
 .social a{
@@ -89,12 +88,9 @@ body{
 </button>
 
 <div id="hours" class="content">
-✨ مواعيدنا ✨<br><br>
-
 اهلاً بحضرتك يافندم 💛<br>
-مواعيد ORO Cafe 💛<br>
-من الساعة 8 صباحًا إلى الساعة 1:30 بعد منتصف الليل 📍<br>
-يوم الجمعة من الساعة 12 ظهرًا إلى 1:30 بعد منتصف الليل 📍<br>
+من الساعة 8 صباحًا إلى 1:30 بعد منتصف الليل.<br>
+يوم الجمعة من الساعة 12 ظهرًا إلى 1:30 بعد منتصف الليل.<br>
 تنورونا في أي وقت ✨
 </div>
 
@@ -104,12 +100,96 @@ body{
 
 <div id="engagement" class="content">
 
-💛 عروض الخطوبة وكتب الكتاب 💛<br><br>
-
 <b>العرض الأول:</b><br>
-3499 جنيه<br>
-يشمل قاعة مكيفة بالكامل والساوند سيستم بدون ديكور.<br><br>
+3499 جنيه<br><br>
 
 <b>العرض الثاني:</b><br>
-5500 جنيه<br>
-يشمل الق
+5500 جنيه<br><br>
+
+<b>العرض الفضي:</b><br>
+6900 جنيه<br><br>
+
+<b>العرض الذهبي:</b><br>
+7880 جنيه<br><br>
+
+<b>VIP:</b><br>
+9280 جنيه<br><br>
+
+قاعة مكيفة بالكامل بالدور الثاني تسع متوسط 80 فرد.<br>
+متاح فوتوسيشن في الحديقة 💛
+</div>
+
+<button class="btn" onclick="toggleContent('birthday')">
+🎂 أعياد الميلاد والسبوع
+</button>
+
+<div id="birthday" class="content">
+
+أقل من 5 أفراد: 100 جنيه خدمة.<br><br>
+
+من 5 إلى 10 أفراد: 200 جنيه خدمة.<br><br>
+
+من 10 إلى 20 فرد: 350 جنيه خدمة.<br><br>
+
+20 فرد فأكثر: 50 جنيه للفرد.<br><br>
+
+خصم 10% عند الطلب من المنيو في العرض الرابع.<br>
+الديكور متاح اختياري.
+</div>
+
+<button class="btn" onclick="toggleContent('students')">
+📚 الطلاب والمذاكرة
+</button>
+
+<div id="students" class="content">
+
+ساعة مذاكرة: 20 جنيه.<br><br>
+
+ساعتان: 35 جنيه.<br><br>
+
+أو خصم 15% على المشروبات الباردة والديزرت.<br><br>
+
+الرابع هدية لو جايين مجموعة 💛
+</div>
+
+<div class="social">
+
+<a href="https://www.facebook.com/share/18qc1vY1iN/" target="_blank">
+Facebook
+</a>
+
+<a href="https://www.instagram.com/oro_cafee01" target="_blank">
+Instagram
+</a>
+
+<a href="https://www.tiktok.com/@orocafe01" target="_blank">
+TikTok
+</a>
+
+</div>
+
+</div>
+
+<script>
+function toggleContent(id){
+
+let sections=document.querySelectorAll('.content');
+
+sections.forEach(section=>{
+if(section.id!==id){
+section.style.display='none';
+}
+});
+
+let content=document.getElementById(id);
+
+if(content.style.display==='block'){
+content.style.display='none';
+}else{
+content.style.display='block';
+}
+}
+</script>
+
+</body>
+</html>
