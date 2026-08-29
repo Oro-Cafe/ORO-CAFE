@@ -8,20 +8,21 @@
         body { margin: 0; background: #000; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
         .container { position: relative; width: 100%; max-width: 500px; }
         img { width: 100%; height: auto; display: block; }
-        .btn { position: absolute; background: rgba(255, 0, 0, 0.2); border: 2px dashed yellow; cursor: pointer; z-index: 10; }
+        .btn { position: absolute; background: transparent; border: none; cursor: pointer; }
         
-        .btn-menu { top: 22%; left: 5%; width: 42%; height: 24%; }
-        .btn-wedding { top: 22%; right: 5%; width: 42%; height: 24%; }
+        .btn-menu { top: 25%; left: 5%; width: 43%; height: 21%; }
+        .btn-wedding { top: 25%; right: 5%; width: 43%; height: 21%; }
         .btn-birthday { top: 48%; left: 5%; width: 90%; height: 18%; }
-        .btn-student { top: 69%; left: 5%; width: 42%; height: 15%; }
-        .btn-time { top: 69%; right: 5%; width: 42%; height: 15%; }
+        .btn-student { top: 69%; left: 5%; width: 43%; height: 14%; }
+        .btn-time { top: 69%; right: 5%; width: 43%; height: 14%; }
         
-        #display-area { width: 100%; max-width: 500px; background: #1a1a1a; color: #fff; padding: 20px; border-top: 2px solid #c5a059; text-align: center; line-height: 1.6; box-sizing: border-box; }
+        #display-area { width: 100%; max-width: 500px; background: #1a1a1a; color: #fff; padding: 20px; border-top: 2px solid #c5a059; text-align: center; line-height: 1.6; box-sizing: border-box; display: none; }
         h2 { color: #c5a059; margin-bottom: 15px; }
+        .back-btn { background: #c5a059; color: #000; border: none; padding: 10px 20px; margin-top: 20px; border-radius: 5px; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="main-container">
         <img src="cafe.jpg.png" alt="ORO Cafe">
         <button class="btn btn-menu" onclick="showContent('menu')"></button>
         <button class="btn btn-wedding" onclick="showContent('wedding')"></button>
@@ -31,8 +32,9 @@
     </div>
 
     <div id="display-area">
-        <h2 id="title">مرحباً بكم في ORO Cafe</h2>
-        <div id="content">اضغطي على أي زرار في الصورة لعرض التفاصيل 💛</div>
+        <h2 id="title"></h2>
+        <div id="content"></div>
+        <button class="back-btn" onclick="goHome()">رجوع للرئيسية</button>
     </div>
 
     <script>
@@ -64,7 +66,14 @@
             if (data[type]) {
                 document.getElementById('title').innerText = data[type].title;
                 document.getElementById('content').innerHTML = data[type].content;
+                document.getElementById('main-container').style.display = 'none';
+                document.getElementById('display-area').style.display = 'block';
             }
+        }
+
+        function goHome() {
+            document.getElementById('display-area').style.display = 'none';
+            document.getElementById('main-container').style.display = 'block';
         }
     </script>
 </body>
